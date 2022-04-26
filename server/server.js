@@ -10,7 +10,7 @@ app.use(express.json({ extended: false }));
 connectDb();
 
 const PORT = process.env.PORT || 5000;
-
+const router = require ('./routes/api/listings.js');
 // Define Routes
 
 app.use("/api/chats", require("./routes/api/chats"));
@@ -23,6 +23,7 @@ app.use("/api/reviewdata", require("./routes/api/reviewdata"));
 app.use("/api/paymentsdata", require("./routes/api/paymentsdata"));
 app.use("/api/users", require("./routes/api/users"));
 app.use("/api/messages", require("./routes/api/messages"));
+app.use('/api/listings', router);
 
 
 
