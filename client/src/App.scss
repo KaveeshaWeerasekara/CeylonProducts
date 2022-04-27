@@ -1,0 +1,9 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital@1&family=PT+Sans&display=swap");
+
+* {
+  font-family: "Open Sans", sans-serif;
+}
+
+//import partial files
+@import "./sass/extends";
+@import "./sass/contact";
