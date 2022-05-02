@@ -1,6 +1,6 @@
 import React from 'react'
-import BaseLogin from '../imports/BaseLogin';
-import LoginForm from '../imports/LoginForm';
+import BaseLogin from '../../loginAndSignup/imports/BaseLogin';
+import LoginForm from '../../loginAndSignup/imports/LoginForm';
 
 export default function Login() {
   return (
