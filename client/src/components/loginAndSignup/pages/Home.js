@@ -1,6 +1,6 @@
 import React from 'react'
 
-import Header from '../imports/Header';
+import Header from '../../loginAndSignup/imports/Header';
 
 export default function Home() {
   return (
