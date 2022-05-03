@@ -1,9 +1,9 @@
 
 import './App.scss';
 
-import Login from './components/pages/Login';
-import Register from './components/pages/Register';
-import Home from './components/pages/Home';
+import Login from './components/loginAndSignup/pages/Login';
+import Register from './components/loginAndSignup/pages/Register';
+import Home from './components/loginAndSignup/pages/Home';
 
 import {BrowserRouter,Routes,Route} from 'react-router-dom';
 

@@ -1,6 +1,6 @@
 import React from 'react'
-import BaseRegister from '../imports/BaseRegister';
-import RegisterForm from '../imports/RegisterForm';
+import BaseRegister from '../../loginAndSignup/imports/BaseRegister';
+import RegisterForm from '../../loginAndSignup/imports/RegisterForm';
 
 export default function Register() {
   return (
