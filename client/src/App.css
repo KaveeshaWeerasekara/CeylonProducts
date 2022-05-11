@@ -1,0 +1,9 @@
+ /* Define tailwindCSS  */
+
+ @tailwind base;
+ @tailwind components;
+ @tailwind utilities;
+ 
+ .space { margin-top: 80px; }
+
+ 
