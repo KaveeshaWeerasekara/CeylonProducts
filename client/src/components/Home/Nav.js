@@ -9,7 +9,7 @@ const navigation = [
   { name: 'Home', href: '#' },
   { name: 'Contact Us', href: '#' },
   { name: 'Blog', href: '#'},
-  { name: 'Shop', href: '#' },
+  { name: 'Shop', href: '/Seller' },
   { name: 'Admin Panel', href: '/AdminPanel/' },
 ]
 
