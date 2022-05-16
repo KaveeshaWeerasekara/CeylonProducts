@@ -12,8 +12,9 @@ import Register from "./components/loginAndSignup/pages/Register";
 //Import components (Pages) - Admin Panel
 import SellersTable from "./components/Admin Panel/Pages/Sellers/SellersTableNew";
 
+
 //Import Component (Pages) - Buyer
-import Home from "./components/Client Panel/Pages/Home/Home";
+import Home from "./components/Home/Home";
 
 function App() {
   return (
@@ -23,15 +24,15 @@ function App() {
         <Route path="/login" element={<Login />}></Route>
         <Route path="/register" element={<Register />}></Route>
       </Routes>
-
-      <Routes>
-        <Route path="/AdminPanel/sellers" element={<SellersTable />} />
-      </Routes>
-
-      <Routes>
-        <Route path="/Home" element={<Home />} />
-      </Routes>
       
+      <Routes>
+          <Route path="/AdminPanel/" element={<SellersTable />} />
+        </Routes>
+
+      <Routes>
+          <Route path="/Home" element={<Home />} />
+        </Routes>
+
     </BrowserRouter>
   );
 }

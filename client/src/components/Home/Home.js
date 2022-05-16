@@ -1,4 +1,4 @@
-import Nav from "../../Common/Nav";
+import Nav from "./Nav";
 
 
 

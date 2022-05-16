@@ -2,7 +2,7 @@
 import { Fragment } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { BellIcon, MenuIcon, XIcon } from '@heroicons/react/outline'
-import img from "../../../assets/CeylonLogo.jpeg"
+import img from "../../assets/CeylonLogo.jpeg"
 import { Link} from "react-router-dom";
 
 const navigation = [
@@ -10,7 +10,7 @@ const navigation = [
   { name: 'Contact Us', href: '#' },
   { name: 'Blog', href: '#'},
   { name: 'Shop', href: '#' },
-  { name: 'Admin Panel', href: '/AdminPanel/sellers' },
+  { name: 'Admin Panel', href: '/AdminPanel/' },
 ]
 
 function classNames(...classes) {
