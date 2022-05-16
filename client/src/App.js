@@ -1,11 +1,20 @@
+import React from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+
+//Import Css & scss
 import "./App.scss";
+import "./App.css";
 
 import Login from "./components/loginAndSignup/pages/Login";
 import Register from "./components/loginAndSignup/pages/Register";
-import Home from "./components/loginAndSignup/pages/Home";
-import Seller from "./components/sellerRegistration/SellerRegistration";
+//import Home from "./components/loginAndSignup/pages/Home";
 
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+//Import components (Pages) - Admin Panel
+import SellersTable from "./components/Admin Panel/Pages/Sellers/SellersTableNew";
+
+
+//Import Component (Pages) - Buyer
+import Home from "./components/Home/Home";
 
 function App() {
   return (
@@ -14,8 +23,16 @@ function App() {
         <Route exact path="/" element={<Home />}></Route>
         <Route path="/login" element={<Login />}></Route>
         <Route path="/register" element={<Register />}></Route>
-        <Route path="/seller" element={<Seller />}></Route>
       </Routes>
+      
+      <Routes>
+          <Route path="/AdminPanel/" element={<SellersTable />} />
+        </Routes>
+
+      <Routes>
+          <Route path="/Home" element={<Home />} />
+        </Routes>
+
     </BrowserRouter>
   );
 }

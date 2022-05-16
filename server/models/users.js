@@ -7,7 +7,7 @@ const userschema = new mongoose.Schema({
     },
     middleName:{
         type:String,
-        required: true,
+        required: false,
     },
     lastName:{
         type:String,
@@ -16,15 +16,15 @@ const userschema = new mongoose.Schema({
     
    userID :{
         type:String,
-        required: true,
+        required: false,
     },
     password:{
         type:String,
-        required: true,
+        required: false,
     },
     tpnumber:{
         type:String,
-        required: true,
+        required: false,
     },
     Email:{
         type:String,
@@ -32,7 +32,7 @@ const userschema = new mongoose.Schema({
     },
     streetNo:{
         type:String,
-        required: true,
+        required: false,
     },
     Street:{
         type:String,
@@ -50,9 +50,12 @@ const userschema = new mongoose.Schema({
         type:String,
         required: true,
     },
+    img:
+    {
+        data: Buffer,
+        contentType: String,
+    }
  
 });
 
 module.exports  = mongoose.model("users", userschema);
-
-
