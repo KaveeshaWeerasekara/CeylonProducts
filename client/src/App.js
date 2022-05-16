@@ -16,6 +16,8 @@ import SellersTable from "./components/Admin Panel/Pages/Sellers/SellersTableNew
 //Import Component (Pages) - Buyer
 import Home from "./components/Home/Home";
 
+import SellerRegistration from "./components/sellerRegistration/SellerRegistration";
+
 function App() {
   return (
     <BrowserRouter>
@@ -31,6 +33,10 @@ function App() {
 
       <Routes>
           <Route path="/Home" element={<Home />} />
+        </Routes>
+
+        <Routes>
+          <Route path="/Seller" element={<SellerRegistration />} />
         </Routes>
 
     </BrowserRouter>
