@@ -7,38 +7,40 @@ import "./App.css";
 
 import Login from "./components/loginAndSignup/pages/Login";
 import Register from "./components/loginAndSignup/pages/Register";
-//import Home from "./components/loginAndSignup/pages/Home";
 
-//Import components (Pages) - Admin Panel
-import SellersTable from "./components/Admin Panel/Pages/Sellers/SellersTableNew";
+//Import components (Pages) - Admin
+import SellersTable from "./Pages/Admin Panel/SellersTable";
 
+//Import Component (Pages) - Client
+import Home from "./Pages/Client Panel/Home";
 
-//Import Component (Pages) - Buyer
-import Home from "./components/Home/Home";
-
-import SellerRegistration from "./components/sellerRegistration/SellerRegistration";
+//Import Component (Pages) - Seller
+import SellerRegistration from "./components/seller Panel/SellerRegistration";
 
 function App() {
   return (
     <BrowserRouter>
+      {/* Login & Registation */}
       <Routes>
         <Route exact path="/" element={<Home />}></Route>
         <Route path="/login" element={<Login />}></Route>
         <Route path="/register" element={<Register />}></Route>
       </Routes>
-      
+
+      {/* Admin */}
       <Routes>
-          <Route path="/AdminPanel/" element={<SellersTable />} />
-        </Routes>
+        <Route path="/AdminPanel/" element={<SellersTable />} />
+      </Routes>
 
+      {/* Client */}
       <Routes>
-          <Route path="/Home" element={<Home />} />
-        </Routes>
+        <Route path="/Home" element={<Home />} />
+      </Routes>
 
-        <Routes>
-          <Route path="/Seller" element={<SellerRegistration />} />
-        </Routes>
-
+      {/* Seller */}
+      <Routes>
+        <Route path="/Seller" element={<SellerRegistration />} />
+      </Routes>
     </BrowserRouter>
   );
 }

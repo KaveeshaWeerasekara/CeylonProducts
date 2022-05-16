@@ -8,9 +8,9 @@ import SearchIcon from "@mui/icons-material/Search";
 import ReactPaginate from "react-paginate";
 
 //Add Edit & Delete span
-import UserMoreMenu from "../../Utils/UserMoreMenu";
+import UserMoreMenu from "../../components/Admin Panel/Utils/UserMoreMenu";
 
-import "./Pagination.css";
+import "../../sass/Admin/Pagination.css";
 
 //per page has rows
 const PER_PAGE = 10;

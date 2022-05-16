@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 //Side Bar CSS files & Import Logo
-import "./sidebar.scss";
+import "../../../sass/Admin/sidebar.scss";
 import "boxicons/css/boxicons.min.css";
 import img from "../../../assets/CeylonLogo.jpeg";
 
