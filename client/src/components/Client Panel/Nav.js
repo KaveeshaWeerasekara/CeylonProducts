@@ -1,20 +1,20 @@
 /* This example requires Tailwind CSS v2.0+ */
-import { Fragment } from 'react'
-import { Disclosure, Menu, Transition } from '@headlessui/react'
-import { BellIcon, MenuIcon, XIcon } from '@heroicons/react/outline'
-import img from "../../assets/CeylonLogo.jpeg"
-import { Link} from "react-router-dom";
+import { Fragment } from "react";
+import { Disclosure, Menu, Transition } from "@headlessui/react";
+import { BellIcon, MenuIcon, XIcon } from "@heroicons/react/outline";
+import img from "../../assets/CeylonLogo.jpeg";
+import { Link } from "react-router-dom";
 
 const navigation = [
-  { name: 'Home', href: '#' },
-  { name: 'Contact Us', href: '#' },
-  { name: 'Blog', href: '#'},
-  { name: 'Shop', href: '/Seller' },
-  { name: 'Admin Panel', href: '/AdminPanel/' },
-]
+  { name: "Home", href: "#" },
+  { name: "Contact Us", href: "#" },
+  { name: "Blog", href: "#" },
+  { name: "Shop", href: "/Seller" },
+  { name: "Admin Panel", href: "/AdminPanel/" },
+];
 
 function classNames(...classes) {
-  return classes.filter(Boolean).join(' ')
+  return classes.filter(Boolean).join(" ");
 }
 
 export default function Nav() {
@@ -38,11 +38,11 @@ export default function Nav() {
               <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
                 <div className="flex-shrink-0 flex items-center">
                   <Link to="/Home">
-                  <img
-                    className="hidden lg:block h-12 w-auto"             
-                    src={img}
-                    alt="Ceyloan Products"
-                  />
+                    <img
+                      className="hidden lg:block h-12 w-auto"
+                      src={img}
+                      alt="Ceyloan Products"
+                    />
                   </Link>
                 </div>
                 <div className="hidden sm:block sm:ml-6 justify-end absolute  right-20">
@@ -56,7 +56,7 @@ export default function Nav() {
                         //   item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
                         //   'px-3 py-3 rounded-md text-sm font-medium'
                         // )}
-                        aria-current={item.current ? 'page' : undefined}
+                        aria-current={item.current ? "page" : undefined}
                       >
                         {item.name}
                       </a>
@@ -74,7 +74,7 @@ export default function Nav() {
                 </button>
 
                 {/* Profile dropdown */}
-                <Menu as="div" className="ml-3 relative">
+                {/* <Menu as="div" className="ml-3 relative">
                   <div>
                     <Menu.Button className="bg-gray-800 flex text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
                       <span className="sr-only">Open user menu</span>
@@ -99,7 +99,10 @@ export default function Nav() {
                         {({ active }) => (
                           <a
                             href="#"
-                            className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
+                            className={classNames(
+                              active ? "bg-gray-100" : "",
+                              "block px-4 py-2 text-sm text-gray-700"
+                            )}
                           >
                             Your Profile
                           </a>
@@ -109,7 +112,10 @@ export default function Nav() {
                         {({ active }) => (
                           <a
                             href="#"
-                            className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
+                            className={classNames(
+                              active ? "bg-gray-100" : "",
+                              "block px-4 py-2 text-sm text-gray-700"
+                            )}
                           >
                             Become a Seller
                           </a>
@@ -119,7 +125,10 @@ export default function Nav() {
                         {({ active }) => (
                           <a
                             href="#"
-                            className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
+                            className={classNames(
+                              active ? "bg-gray-100" : "",
+                              "block px-4 py-2 text-sm text-gray-700"
+                            )}
                           >
                             Sign out
                           </a>
@@ -127,7 +136,14 @@ export default function Nav() {
                       </Menu.Item>
                     </Menu.Items>
                   </Transition>
-                </Menu>
+                </Menu> */}
+
+                <a
+                  href="/login"
+                  className=" px-3 py-2 text-sm rounded-md font-medium text-gray-100 bg-[#e97e48e0] hover:bg-[#ee9b72e0]  hover:text-white   transition duration-150 ease-in-out"
+                >
+                  Login
+                </a>
               </div>
             </div>
           </div>
@@ -140,10 +156,12 @@ export default function Nav() {
                   as="a"
                   href={item.href}
                   className={classNames(
-                    item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
-                    'block px-3 py-2 rounded-md text-base font-medium'
+                    item.current
+                      ? "bg-gray-900 text-white"
+                      : "text-gray-300 hover:bg-gray-700 hover:text-white",
+                    "block px-3 py-2 rounded-md text-base font-medium"
                   )}
-                  aria-current={item.current ? 'page' : undefined}
+                  aria-current={item.current ? "page" : undefined}
                 >
                   {item.name}
                 </Disclosure.Button>
@@ -153,5 +171,5 @@ export default function Nav() {
         </>
       )}
     </Disclosure>
-  )
+  );
 }
