@@ -14,6 +14,7 @@
     "@iconify-icons/eva": "^1.2.1",
     "@material-ui/core": "^4.12.4",
     "@mui/icons-material": "^5.4.4",
+    "@mui/material": "^5.8.1",
     "@testing-library/jest-dom": "^5.16.2",
     "@testing-library/react": "^12.1.3",
     "@testing-library/user-event": "^13.5.0",
