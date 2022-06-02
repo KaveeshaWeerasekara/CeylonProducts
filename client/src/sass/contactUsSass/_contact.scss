@@ -1,3 +1,8 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital@1&family=PT+Sans&display=swap");
+.title{
+  font-family: "Open Sans", sans-serif;
+}
+
 #contact {
     min-height: 100vh;
     display: flex;
@@ -17,18 +22,18 @@
       box-shadow: 0 0 35px rgba(0, 0, 0, 0.1);
       border-radius: 10px;
   
-      > .bg-img {
-        padding: 0;
-        border-radius: 0 10px 10px 0;
-        background: rgba(0, 0, 0, 0.04)
-          url(http://localhost:3000/static/media/bg_img.87f0035ab26c4eaeb6b9.jpg)
-          top left no-repeat;
+      // > .bg-img {
+      //   padding: 0;
+      //   border-radius: 0 10px 10px 0;
+      //   background: rgba(0, 0, 0, 0.04)
+      //     url(http://localhost:3000/static/media/bg_img.87f0035ab26c4eaeb6b9.jpg)
+      //     top left no-repeat;
   
-        background-size: cover;
-        top: 0;
-        bottom: 0;
-        opacity: 1;
-      }
+      //   background-size: cover;
+      //   top: 0;
+      //   bottom: 0;
+      //   opacity: 1;
+      // }
   
       > .bgreg-img {
         padding: 0;
@@ -103,6 +108,7 @@
         > h3 {
           font-size: 25px;
           @extend.font-bold;
+          text-align: center;
           color: black;
         }
       }

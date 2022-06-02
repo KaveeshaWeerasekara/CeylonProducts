@@ -1,231 +1,248 @@
 .App {
-    text-align: left;
-  }
-  
-  image{
-    position : absolute;
-    width: 1448px;
-    height: 926px;
-    left: -8px;
-    top: 0px;
-  }
-  
+  text-align: left;
+  font-size: 20px;
+}
+
+.App1 {
+  text-align: center;
+  font-size: 40px;
+}
+
+.app3 {
+  text-align: left;
+  font-size: 30px;
+}
+
+image{
+  position : absolute;
+  width: 1448px;
+  height: 926px;
+  left: -8px;
+  top: 0px;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
   .App-logo {
-    height: 40vmin;
-    pointer-events: none;
+    animation: App-logo-spin infinite 20s linear;
   }
-  
-  @media (prefers-reduced-motion: no-preference) {
-    .App-logo {
-      animation: App-logo-spin infinite 20s linear;
-    }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
   }
-  
-  .App-header {
-    background-color: #282c34;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: calc(10px + 2vmin);
-    color: white;
+  to {
+    transform: rotate(360deg);
   }
+}
+
+.split {
+  height: 100%;
+  width: 50%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+/* Control the left side */
+.left {
+  left: 0;
+  background-color: rgb(241, 239, 239);
+}
+
+/* Control the right side */
+.right {
+  right: 0;
+  font-size: 10px;
+  font-family: sans-serif;
+  background-color: rgb(241, 239, 239);
+}
+
+/* If you want the content centered horizontally and vertically */
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  font-size: 25px;
+}
+
+/* Style the image inside the centered container, if needed */
+.centered img {
+  width: 150px;
+  border-radius: 50%;
+}
+
+#contact {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  text-align: center;
   
-  .App-link {
-    color: #61dafb;
+}
+
+  .contact-box {
+    max-width: 850px;
+    margin: 0 auto;
+    box-shadow: 0 0 35px rgba(238, 225, 225, 0.1);
+    border-radius: 10px;
   }
-  
-  @keyframes App-logo-spin {
-    from {
-      transform: rotate(0deg);
-    }
-    to {
-      transform: rotate(360deg);
-    }
-  }
-  
-  .split {
-    height: 100%;
-    width: 50%;
-    position: fixed;
-    z-index: 1;
-    top: 0;
-    overflow-x: hidden;
-    padding-top: 20px;
-  }
-  
-  /* Control the left side */
-  .left {
-    left: 0;
-    background-color: rgb(255, 255, 255);
-  }
-  
-  /* Control the right side */
-  .right {
-    right: 0;
-    background-color: rgb(255, 255, 255);
-  }
-  
-  /* If you want the content centered horizontally and vertically */
-  .centered {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-  }
-  
-  /* Style the image inside the centered container, if needed */
-  .centered img {
-    width: 150px;
-    border-radius: 50%;
-  }
-  
-  #login {
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    text-align: center;
-  }
-  
-    .login-box {
-      max-width: 850px;
-      margin: 0 auto;
-      box-shadow: 0 0 35px rgba(238, 225, 225, 0.1);
-      border-radius: 10px;
-    }
-  
-  
-      .info {
-        position: relative;
-        height: 560px;
-  
-       } 
-       
-       .logo {
-          text-align: left;
-          margin: 20px;
-  
-        } 
-        
-        .nav-brand {
-            font-size: 22px;
-            
-            color: rgb(17, 14, 14);
-          }
-        
-        
-        .btn-section {
-          position: absolute;
-          top: 40%;
-          right: 0;
-          margin-bottom: 0;
-        }
-          .link-btn {
-            font-size: 12px;
-           
-          }
-  
-          .link-btn.active {
-            background-color: #c96838;
-            color: #fff;
-            position: center;
-          }
-  
-           .btn-primary {
-            text-align: center;
-            line-height: 30px;
-            width: 100%;
-            text-transform: uppercase;
-            border-radius: 50px 0 0 50px;
-            margin-bottom: 15px;
-            border: none;
-  
-           }
-           :focus {
-              outline: none;
-              box-shadow: none;
-            }
-          
-        
+
+
+    .info {
+      position: relative;
+      height: 560px;
+
+     } 
+     
+     /* .logo {
+        text-align: left;
+        margin: 20px;
+
+      }  */
       
-    .form-section {
-      text-align: right;
-      max-width: 400px;
-      margin: 0 auto;
-      width: 100%;
-    }
-  
-      .title {
-        margin: 10px 0 50px 0;
-      }
-        h3 {
-          font-size: 25px;
-          color: black;
+      .nav-brand {
+          font-size: 22px;
+          
+          color: rgb(17, 14, 14);
         }
       
-  
-      .login-inner-form {
-        position: relative;
-        color: #f1cd89;
+      
+      .btn-section {
+        position: absolute;
+        top: 40%;
+        right: 0;
+        margin-bottom: 0;
       }
-        .form-box {
-          float: right;
-          width: 100%;
-          position: relative;
+        .link-btn {
+          font-size: 12px;
+         
         }
-          
-          
-  
-          
-           .input-text {
-            font-size: 14px;
-            outline: none;
-            color: #fff;
-            background: #c4c4c4;
-            border-radius: 10px;
-            border: 1px solid transparent;
-            box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-            padding: 11px 45px 11px 20px;
-            width: 100%;
-            width: 459px;
-            margin-bottom: 10px;
-          }
-  
-          .input-text-area{
-            font-size: 14px;
-            outline: none;
-            color: #fff;
-            background: #c4c4c4;
-            border-radius: 10px;
-            border: 1px solid transparent;
-            box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-            padding: 35px 55px 35px 14px;
-            width: 459px;
-            margin-bottom: 10px;
-          }
-        
-  
-        .primary-btn {
-          background: #c96838;
-          width: 460px;
-          border: none;
+
+        .link-btn.active {
+          background-color: #c96838;
           color: #fff;
-          box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-          padding: 10px 30px 9px 30px;
-          cursor: pointer;
-          height: 45px;
-          border-radius: 10px;
-          margin-top: 20px;
-        
+          position: center;
         }
-          
+
+         .btn-primary {
+          text-align: center;
+          line-height: 30px;
+          width: 100%;
+          text-transform: uppercase;
+          border-radius: 50px 0 0 50px;
+          margin-bottom: 15px;
+          border: none;
+
+         }
+         :focus {
+            outline: none;
+            box-shadow: none;
+          }
+        
+      
+    
+  .form-section {
+    text-align: right;
+    font-size: 30px;
+    max-width: 400px;
+    margin: 0 auto;
+    width: 100%;
+  }
+  
+
+    .title {
+      margin: 10px 0 50px 0;
+    }
+      h2 {
+        font-size: 25px;
+        color: black;
+      }
+    
+
+    .login-inner-form {
+      position: relative;
+      color: #f1cd89;
+    }
+      .form-box {
+        float: right;
+        width: 100%;
+        position: relative;
+      }
+        
+        
+
+        
+         .input-text {
+          font-size: 18px;
+          outline: none;
+          color: #fff;
+          background: #c4c4c4;
+          border-radius: 10px;
+          border: 1px solid transparent;
+          box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+          padding: 11px 45px 11px 20px;
+          width: 660px;
+          height: 50px;
+          margin-bottom: 10px;
+        }
+
+        .input-text-area{
+          font-size: 18px;
+          outline: none;
+          color: #fff;
+          background: #c4c4c4;
+          border-radius: 10px;
+          border: 1px solid transparent;
+          box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+          padding: 35px 55px 35px 14px;
+          width: 660px;
+          height: 100px;
+          margin-bottom: 10px;
+        }
+      
+
+      .primary-btn {
+        background: #c96838;
+        width: 660px;
+        border: none;
+        color: #fff;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+        padding: 10px 30px 9px 30px;
+        cursor: pointer;
+        height: 45px;
+        border-radius: 10px;
+        margin-top: 20px;
+      
+      }
         
       
     
   
-  
-  
+
+

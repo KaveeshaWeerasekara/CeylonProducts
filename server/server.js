@@ -23,6 +23,8 @@ app.use("/api/reviewdata", require("./routes/api/reviewdata"));
 app.use("/api/paymentsdata", require("./routes/api/paymentsdata"));
 app.use("/api/users", require("./routes/api/users"));
 app.use("/api/messages", require("./routes/api/messages"));
+app.use("/api/category", require("./routes/api/category"));
+
 app.use('/api/listings', router);
 
 
