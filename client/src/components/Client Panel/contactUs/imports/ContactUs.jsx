@@ -38,7 +38,7 @@ export default function ContactUs(props) {
 <div className='app3'>    
       <div className="row">
         <div className="col-lg-8 mb-4 contact-left">
-          <h6>Contact CeylonProducts</h6>
+          <h6>Contact <b>CeylonProducts</b></h6>
           
           <div className='form-section2' >
           </div> 
