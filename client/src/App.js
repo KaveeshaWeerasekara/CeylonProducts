@@ -6,8 +6,6 @@ import "./App.scss";
 import "./App.css";
 import "./css/ContactUs.css";
 
-
-
 import Login from "./components/loginAndSignup/pages/Login";
 import Register from "./components/loginAndSignup/pages/Register";
 
@@ -22,13 +20,13 @@ import ContactUsPage from "./Pages/Client Panel/ContactUsPage";
 
 //Import Component (Pages) - Seller
 import SellerRegistration from "./components/seller Panel/SellerRegistration";
+import Dashboard from "./Pages/Admin Panel/Dashboard";
 
 //Import Page - Form
 import Formview from "./Pages/Client Panel/products/Form";
 
 //Import page- ProductsView
 import ProductsView from "./Pages/Client Panel/products/ProductsView";
-
 
 function App() {
   return (
@@ -58,16 +56,18 @@ function App() {
       <Routes>
         <Route path="/Seller" element={<SellerRegistration />} />
       </Routes>
-     {/*Form*/}
+      {/*Form*/}
       <Routes>
         <Route path="/Form" element={<Formview />} />
       </Routes>
-       {/*ProductsView*/}
-       <Routes>
+      {/*ProductsView*/}
+      <Routes>
         <Route path="/ProductsView" element={<ProductsView />} />
       </Routes>
 
-     
+      <Routes>
+        <Route path="/Dashboard" element={<Dashboard />} />
+      </Routes>
     </BrowserRouter>
   );
 }
