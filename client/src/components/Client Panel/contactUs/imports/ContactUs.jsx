@@ -47,15 +47,17 @@ export default function ContactUs(props) {
           <form id="formal" name="formal" method="post" action="contactus.php">
            
           <div className="form-group form-box">
-              <input type="text" id="name" className="input-text" placeholder="Name"/>
+              <input type="text" id="name" className="input-text" placeholder="Name" required/>
           </div>
 
             <div className="form-group form-box">
-              <input type="text" id="email" className="input-text" placeholder="Email"/>
+              <input type="text" id="email" className="input-text" placeholder="Email" required/>
             </div>
 
             <div className="form-group form-box-area">
-              <input type="text-area" id="message" className="input-text-area" placeholder="Message"/>
+              <textarea className="text_field_contact_form_message"  id='message' placeholder='Type your message' cols="50" rows="5">
+              <input type="text-area" id="message" className="input-text-area" placeholder="Message" required/>
+              </textarea>
             </div>
          
             <div className="form-group form-box">
