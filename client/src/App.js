@@ -15,6 +15,7 @@ import Register from "./components/loginAndSignup/pages/Register";
 import AppLayout from "./components/Admin Panel/Layout/AppLayout";
 import Dashboard from "./Pages/Admin Panel/Dashboard/Dashboard";
 import SellersTable from "./Pages/Admin Panel/Sellers/SellersTable";
+import OrderTable from "./Pages/Admin Panel/Orders/OrderTable"
 import Verification from "./Pages/Admin Panel/SellerVerification/Verification";
 
 //Import Component (Pages) - Client
@@ -49,6 +50,7 @@ function App() {
         <Route path="AdminPanel" element={<AppLayout />}>
           <Route index element={<Dashboard />} />
           <Route path="Sellers" element={<SellersTable />} />
+          <Route path="Orders" element={<OrderTable />} />
           <Route path="Verification" element={<Verification />} />
         </Route>
       </Routes>
