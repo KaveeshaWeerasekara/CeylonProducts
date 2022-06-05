@@ -9,13 +9,13 @@ function Grid2() {
       <div className="container mx-auto grid grid-cols-3 pt-6 gap-8">
         <div
           className="rounded 
-         col-span-2"
+         col-span-3"
         >
           <SellingRate />
         </div>
-        <div className="rounded border-gray-700 border-dashed border-2 h-24">
+        {/* <div className="rounded border-gray-700 border-dashed border-2 h-24">
           <Trafic />
-        </div>
+        </div> */}
       </div>
     </>
   );

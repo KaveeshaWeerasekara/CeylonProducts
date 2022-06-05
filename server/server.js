@@ -1,3 +1,14 @@
+
+// const bodyParser = require('body-parser');
+// const cors = require('cors');
+
+// app.use(cors());
+// app.use(bodyParser.json());
+// app.listen(PORT, function() {
+//     console.log("Server is running on Port: " + PORT);
+// });
+
+
 const express = require("express");
 const app = express();
 const connectDb = require("./config/db");
@@ -24,6 +35,8 @@ app.use("/api/paymentsdata", require("./routes/api/paymentsdata"));
 app.use("/api/users", require("./routes/api/users"));
 app.use("/api/messages", require("./routes/api/messages"));
 app.use("/api/category", require("./routes/api/category"));
+app.use("/api/contactForm", require("./routes/api/contactform"));
+
 
 app.use('/api/listings', router);
 

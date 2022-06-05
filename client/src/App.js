@@ -4,6 +4,9 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 //Import Css & scss
 import "./App.scss";
 import "./App.css";
+import "./css/ContactUs.css";
+
+
 
 import Login from "./components/loginAndSignup/pages/Login";
 import Register from "./components/loginAndSignup/pages/Register";
@@ -16,6 +19,9 @@ import Verification from "./Pages/Admin Panel/SellerVerification/Verification";
 
 //Import Component (Pages) - Client
 import Home from "./Pages/Client Panel/Home";
+
+//Import Component (Pages) - client
+import ContactUsPage from "./Pages/Client Panel/ContactUsPage";
 
 //Import Component (Pages) - Seller
 import SellerRegistration from "./components/seller Panel/SellerRegistration";
@@ -50,6 +56,11 @@ function App() {
       <Routes>
         <Route path="/Home" element={<Home />} />
       </Routes>
+
+      <Routes>
+        <Route path="/ContactUs" element={<ContactUsPage />} />
+      </Routes>
+
       {/* Seller */}
       <Routes>
         <Route path="/Seller" element={<SellerRegistration />} />
