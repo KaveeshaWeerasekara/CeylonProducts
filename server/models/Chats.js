@@ -9,4 +9,4 @@ const chatSchema = new mongoose.Schema({
   Purchase_ID: { type: String, required: true }
 });
 
-module.exports = mongoose.model("chats", chatSchema);
+module.exports = mongoose.model("chats", chatSchema); 

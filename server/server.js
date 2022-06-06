@@ -1,10 +1,12 @@
 const express = require("express");
 const app = express();
 const connectDb = require("./config/db");
+const cors=require('cors');
 
 
 // If extended is false, you can not post "nested object"
 app.use(express.json({ extended: false }));
+app.use(cors());
 
 // connect Database
 connectDb();
@@ -24,7 +26,7 @@ app.use("/api/paymentsdata", require("./routes/api/paymentsdata"));
 app.use("/api/users", require("./routes/api/users"));
 app.use("/api/messages", require("./routes/api/messages"));
 app.use('/api/listings', router);
-
+app.use('/api',require('./routes/api/login')); 
 
 
 
