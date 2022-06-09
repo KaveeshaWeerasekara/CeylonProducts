@@ -22,4 +22,7 @@ router.put("/updateuser/:id", users.updateUser);
 // @route   DELETE /api/users/deleteuser/:id
 router.delete("/deleteuser/:id", users.deleteUser);
 
+// @route   GET /api/users/getuserByCatergory/:id
+router.post("/getuserByCatergory", users.getuserByCatergory);
+
 module.exports = router;
