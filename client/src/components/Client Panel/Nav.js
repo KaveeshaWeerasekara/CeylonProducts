@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 
 const navigation = [
   { name: "Home", href: "#" },
-  { name: "Contact Us", href: "#" },
+  { name: "Contact Us", href: "/ContactUs" },
   { name: "Blog", href: "#" },
   { name: "Shop", href: "/Seller" },
   { name: "Admin Panel", href: "/AdminPanel/" },
