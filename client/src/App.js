@@ -79,6 +79,10 @@ function App() {
         <Route path="/ProductsView" element={<ProductsView />} />
       </Routes>
 
+      <Routes>
+        <Route path="/ContactUs" element={<ContactUsPage />} />
+      </Routes>
+
       
     </BrowserRouter>
   );
