@@ -12,10 +12,13 @@
 const express = require("express");
 const app = express();
 const connectDb = require("./config/db");
+const cors=require('cors');
 
 
 // If extended is false, you can not post "nested object"
 app.use(express.json({ extended: false }));
+app.use(cors('http://localhost:3006/'));
+
 
 // connect Database
 connectDb();
@@ -39,6 +42,7 @@ app.use("/api/contactForm", require("./routes/api/contactform"));
 
 
 app.use('/api/listings', router);
+app.use('/api',require('./routes/api/login')); 
 
 
 
