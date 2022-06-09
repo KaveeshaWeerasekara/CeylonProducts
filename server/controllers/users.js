@@ -110,3 +110,22 @@ exports.deleteUser = async (req, res, next) => {
     });
   });
 };
+
+//Filter users on category
+exports.getuserByCatergory = async (req, res, next) => {
+  let catergory=req.body.catergory;
+  console.log(catergory);
+  Users.find({
+    city:catergory
+  }).exec((err, users) => {
+    if (err) {
+      return res.status(400).json({
+        error:err,
+      });
+    }
+    return res.status(200).json({
+      success:true,
+      existingposts:users,
+    });
+  });
+};
