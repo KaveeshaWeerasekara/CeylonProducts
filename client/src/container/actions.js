@@ -2,7 +2,8 @@ import * as actionType from './types';
 import * as AuthService from '../components/loginAndSignup/services/auth.service';
 
 //register action
-export const registerAction=(payload)=>(dispatch)=>{
+export const registerAction=payload=>dispatch=>{
+    console.log("register action");
   return AuthService.register(payload)
     .then(response=>{
         dispatch({

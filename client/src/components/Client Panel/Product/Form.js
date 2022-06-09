@@ -26,6 +26,9 @@ const Form = () => {
   const classes = useStyles();
 
   const handleSubmit = () => {
+    console.log(
+      "asd"
+    );
 
   }
 

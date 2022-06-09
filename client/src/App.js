@@ -17,6 +17,9 @@ import Home from "./Pages/Client Panel/Home";
 //Import Component (Pages) - Seller
 import SellerRegistration from "./components/seller Panel/SellerRegistration";
 
+//import component pages-blogs
+//import writeBlogs from "./components/Client Panel/blogpost/write";
+
 function App() {
   return (
     <BrowserRouter>
@@ -41,6 +44,10 @@ function App() {
       <Routes>
         <Route path="/Seller" element={<SellerRegistration />} />
       </Routes>
+
+      {/* <Routes>
+        <Route path="/write" element={<writeBlogs />} />
+      </Routes> */}
     </BrowserRouter>
   );
 }

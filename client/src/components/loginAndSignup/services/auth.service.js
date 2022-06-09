@@ -5,6 +5,8 @@ const baseURL="http://localhost:5000/api";
 
 //register request
 export const register=(newUser)=>{
+    console.log(newUser);
+    console.log("auther");
     //post request on http://localhost:5000/api/register
    return axios.post(`${baseURL}/register`,newUser)
         .then(response=>{

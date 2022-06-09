@@ -21,8 +21,9 @@ const navigate = useNavigate()
 
 //on form submit click handler
 const handleSubmit=(event)=>{
-    event.preventDefault();
 
+    event.preventDefault();
+    console.log("sends")
     const newUser={
         username,
         email,
@@ -31,10 +32,14 @@ const handleSubmit=(event)=>{
 
     }
     const user={username:"admin",email:"admin@gmail.com",password:"admin123",passwordCheck:"admin123"}
+    //registerAction(user)
     const validate=dispatch(registerAction(user));
+
+
+console.log(validate);
     validate
         .then(data=>{
-            //console.log(data)
+            console.log(data)
             navigate('/login');
         })
         .catch(error=>console.log(error))
@@ -42,7 +47,7 @@ const handleSubmit=(event)=>{
 
     console.log(newUser);
 
-}
+ }
 
 let registerData={
     handleSubmit,
