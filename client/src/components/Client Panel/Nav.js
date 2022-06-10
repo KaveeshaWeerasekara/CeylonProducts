@@ -6,9 +6,11 @@ import img from "../../assets/CeylonLogo.jpeg";
 import { Link } from "react-router-dom";
 
 const navigation = [
-  { name: "Home", href: "#" },
-  { name: "Contact Us", href: "ContactUs" },
+
+  { name: "Home", href: "/Home" },
+  { name: "Contact Us", href: "/ContactUs" },
   { name: "Blog", href: "/SellerPanel/" },
+
   { name: "Shop", href: "/Seller" },
   { name: "Admin Panel", href: "/AdminPanel/" },
 ];

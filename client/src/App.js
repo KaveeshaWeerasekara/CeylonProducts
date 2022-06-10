@@ -13,6 +13,11 @@ import Register from "./components/loginAndSignup/pages/Register";
 import AppLayout from "./components/Admin Panel/Layout/AppLayout";
 import Dashboard from "./Pages/Admin Panel/Dashboard/Dashboard";
 import SellersTable from "./Pages/Admin Panel/Sellers/SellersTable";
+
+
+import Categorys from "./Pages/Admin Panel/Products/Categories";
+import ProductTable from "./Pages/Admin Panel/Products/ProductTable";
+
 import Verification from "./Pages/Admin Panel/SellerVerification/Verification";
 
 //Import Component (Pages) - Client
@@ -34,6 +39,9 @@ import ProductsView from "./Pages/Client Panel/products/ProductsView";
 import AppLayout1 from "./components/seller Panel/Layout/AppLayout1";
 import Updates from "./components/seller Panel/Earnings/Updates/Updates1";
 
+
+
+
 function App() {
   return (
     <BrowserRouter>
@@ -48,9 +56,15 @@ function App() {
         <Route path="AdminPanel" element={<AppLayout />}>
           <Route index element={<Dashboard />} />
           <Route path="Sellers" element={<SellersTable />} />
+
+          <Route path="Products" element={<Categorys />} />
+
           <Route path="Verification" element={<Verification />} />
+
+          <Route path="Products/ProductDetails" element={<ProductTable />} />
         </Route>
       </Routes>
+
 
 
       {/* Seller */}
@@ -62,13 +76,16 @@ function App() {
         </Route>
       </Routes>
 
+
       {/* Client */}
       <Routes>
         <Route path="/Home" element={<Home />} />
       </Routes>
+
       <Routes>
         <Route path="/ContactUs" element={<ContactUsPage />} />
       </Routes>
+
 
       {/*Form*/}
       <Routes>
@@ -78,6 +95,12 @@ function App() {
       <Routes>
         <Route path="/ProductsView" element={<ProductsView />} />
       </Routes>
+
+      <Routes>
+        <Route path="/ContactUs" element={<ContactUsPage />} />
+      </Routes>
+
+      
     </BrowserRouter>
   );
 }
