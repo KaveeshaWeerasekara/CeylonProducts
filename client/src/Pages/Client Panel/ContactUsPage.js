@@ -5,27 +5,30 @@ import ContactUs from "../../components/Client Panel/contactUs/imports/ContactUs
 import ContactCeylon from "../../components/Client Panel/contactUs/imports/ContactCeylon";
 
 export default function ContactUsPage(props) {
- 
+
   return (
-  <div >
-        <div className="image"></div>
-      
-    <div>
-      
-        <div className="split right">
-          <div className="centered">
-            <ContactUs/>
+    <div className=" ">
+      <Nav />
+   
+      <div className=" grid grid-flow-row grid-cols-2 grid-rows-1">
+     
+           
+         
+         
+            <div className=" col-start-1">
+              <ContactCeylon />
+            
+          </div>
+          <div className=" col-start-2 pl-10">
+              <ContactUs />
             </div>
-        </div>
-        
-        <div className="split left">
-            <div className="centered">
-                <ContactCeylon/>
-            </div>
-        </div>
+
+      </div>
+
+       
+
+      
     </div>
-    
-</div>
 
   )
 }
