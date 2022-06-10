@@ -34,7 +34,7 @@ import SellerRegistration from "./components/seller Panel/SellerRegistration";
 import Formview from "./Pages/Client Panel/products/Form";
 
 //Import page- ProductsView
-import ProductsView from "./Pages/Client Panel/products/ProductsView";
+import ProductView from "./components/Client Panel/Product/ProductView";
 
 
 
@@ -76,7 +76,7 @@ function App() {
       </Routes>
       {/*ProductsView*/}
       <Routes>
-        <Route path="/ProductsView" element={<ProductsView />} />
+        <Route path="/ProductView" element={<ProductView />} />
       </Routes>
 
       <Routes>

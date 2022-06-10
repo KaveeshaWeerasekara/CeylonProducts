@@ -17,6 +17,13 @@ export default makeStyles(() => ({
     marginLeft: '15px',
   },
   paper:{
-    backgroundColor: 'red',
+    backgroundColor: 'rgba(0,183,255, 1)' ,
+    backgroundSize: 'cover'
+  },
+  product:{
+    
+    backgroundSize:"cover",
+  
   }
+  
 }));

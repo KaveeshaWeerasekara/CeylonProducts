@@ -1,21 +1,26 @@
-import { red } from '@material-ui/core/colors';
 import { makeStyles } from '@material-ui/core/styles';
 
 export default makeStyles((theme) => ({
   root: {
     '& .MuiTextField-root': {
       margin: theme.spacing(1),
+      
     },
   },
   paper: {
     padding: theme.spacing(2),
-    backgroundColor:red,
+    
+    backgroundColor:"#c96838 !important",
+    
+    backgroundSize: "cover",
+    
  
   },
   form: {
     display: 'flex',
     flexWrap: 'wrap',
     justifyContent: 'center',
+    opacity: '100% !important',
   },
   fileInput: {
     width: '100%',

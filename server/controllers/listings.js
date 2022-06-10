@@ -1,37 +1,50 @@
-const listingmessage = require ('../models/listingmessage.js');
 
-const getListings = async(req, res) => {
-    try{
-        const listingmessages = await listingmessage.find();
-         
-        res.status(200).json(listingmessages);
+const { AggregationCursor } = require('mongoose');
+const Listing = require('../models/listingmessage');
 
-    }
-    catch(error){
-        res.status(404).json({ message: error.message});
-    }
+
+exports.createListings = async function (req, res, next) {
+  try {
+    const createListings = new Listing({
+      title: req.body.title,
+      category: req.body.category,
+      description: req.body.description,
+      quantity: req.body.quantity,
+      price: req.body.price,
+      handlingTime: req.body.handlingTime,
+      photo: req.body.photo
+    });
+    
+    const result = await createListings.save();
+    
+    res.json(result);
+
+  } catch (error) {
+    console.error(error.message);
+    res.send("Server error 2");
+  }
+};
+
+
+const getListings = async (req, res, next) => {
+  const listings = await Listing.find().exec();
+  res.json(listings);
 }
 
 
 
-module.exports = getListings;
-
-const createListings = async (req, res) =>{
-    const listing = req.body;
-
-    const newListing = new listingmessage(listing);
-    try{
-
-        await newListing.save();
-
-        res.status(201).json({ newListing});
-    }catch(error){
-        res.status(409).json({ message: error.message});
+exports.getListings = getListings;
 
 
-    }
 
 
+const deleteListings = async (request, response) => {
+  try{
+      await Listing.deleteOne({_id: request.params.id});
+      response.status(201).json("Job deleted Successfully");
+  } catch (error){
+      response.status(409).json({ message: error.message});     
+  }
 }
 
-module.exports = createListings;
+exports.deleteListings = deleteListings;

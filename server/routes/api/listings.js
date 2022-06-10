@@ -1,14 +1,23 @@
 const express = require("express");
-
-const getListings = require("../../controllers/listings.js");
-const createListings = require("../../controllers/listings.js")
-
 const router = express.Router();
-
-router.get('/', getListings);
-router.post('/', createListings);
+const { body } = require("express-validator");
 
 
 
+// bring the products controller
+const Listings = require("../../controllers/listings")
+
+// @route   GET /api/products/createproduct
+
+router.post("/createListing", Listings.createListings);
+
+
+// @route   post /api/products/getproduct
+
+router.get("/getListing", Listings.getListings);
+
+// @route   post /api/products/getproduct
+
+router.delete(`/deleteListings/:id`, Listings.deleteListings);
 
 module.exports = router;

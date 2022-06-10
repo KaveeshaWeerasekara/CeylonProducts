@@ -1,5 +1,6 @@
 
 import React, {useState} from "react";
+import axios from "axios";
 import Button from "@mui/material/Button";
 
 import CssBaseline from "@mui/material/CssBaseline";
@@ -9,7 +10,7 @@ import Paper from "@mui/material/Paper";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
-import { FormControl, InputLabel, Select, MenuItem } from "@material-ui/core";
+import { FormControl, InputLabel, Select, MenuItem} from "@material-ui/core";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import FileBase from "react-file-base64";
 import useStyles from "./FormStyle";
@@ -23,16 +24,45 @@ const Form = () => {
     title: '', category: '', description: '', quantity: '', price: '', handlingTime: '', photo:''
 
   });
+
+  const [selects, setSelects] = useState({
+     category: ''
+
+  });
+
+ 
   const classes = useStyles();
 
-  const handleSubmit = () => {
+  const handleSubmit = (event)=> {
+    event.preventDefault();
+
+    const newListing ={
+      title: postData.title,
+      category: selects.category,
+      description: postData.description,
+      quantity: postData.quantity,
+      price: postData.price,
+      handlingTime: postData.handlingTime,
+      photo: postData.photo
+    }
+    
+    axios.post('http://localhost:5000/api/listings/createListing',newListing)
 
   }
 
   const clear= () =>{
+    
 
   }
-  const handleChange = () => {
+  const handleChange = (event) => {
+    const {name, value} = event.target;
+
+    setPostData(prevPostData => {
+      return{
+        ...prevPostData,
+        [name]:value
+      }
+    })
 
   }
 
@@ -51,27 +81,30 @@ const Form = () => {
        label="Title"
        fullWidth
        value = {postData.title}
-       onChange = {(e) => setPostData({ ...postData,title: e.target.value})}
+       onChange = {handleChange}
        
        ></TextField>
        </Grid>
        <Grid item>
        <FormControl fullWidth>
-  <InputLabel id="demo-simple-select-label">category</InputLabel>
-  <Select variant="filled"
-    labelId="demo-simple-select-label"
-    id="demo-simple-select"
-    value={postData.category}
-    label="Category"
-    onChange={handleChange}
-  >
-    <MenuItem value={10}>Spices</MenuItem>
-    <MenuItem value={20}>Tea</MenuItem>
-    <MenuItem value={30}>Coffee</MenuItem>
-    <MenuItem value={30}>Handi Crafts</MenuItem>
-    <MenuItem value={30}>Home Decors</MenuItem>
-  </Select>
-</FormControl>
+  <InputLabel id="category">category</InputLabel>
+      <Select variant="filled"
+      LabelId="category"
+      id="categorySelect"
+
+      label="Category"
+      value={selects.category} onChange={(e)=> setSelects({...selects, category: e.target.value})}>
+        <MenuItem></MenuItem>
+        <MenuItem>Spices</MenuItem>
+        <MenuItem>Tea</MenuItem>
+        <MenuItem>Coffee</MenuItem>
+        <MenuItem>Handicrafts</MenuItem>
+        
+       
+
+      </Select>
+      
+      </FormControl>
 </Grid>
 
       
@@ -86,7 +119,7 @@ const Form = () => {
        label="Description"
        fullWidth
        value = {postData.description}
-       onChange = {(e) => setPostData({ ...postData,description: e.target.value})}
+       onChange = {handleChange}
        
        ></TextField>
        </Grid>
@@ -99,7 +132,7 @@ const Form = () => {
        label="Quantity"
        fullWidth
        value = {postData.quantity}
-       onChange = {(e) => setPostData({ ...postData,quantity: e.target.value})}
+       onChange = {handleChange}
        
        ></TextField>
        </Grid>
@@ -112,7 +145,7 @@ const Form = () => {
        label="Price"
        fullWidth
        value = {postData.price}
-       onChange = {(e) => setPostData({ ...postData,price: e.target.value})}
+       onChange = {handleChange}
        
        ></TextField>
        </Grid>
@@ -125,17 +158,11 @@ const Form = () => {
        label="Handling Time"
        fullWidth
        value = {postData.handlingData}
-       onChange = {(e) => setPostData({ ...postData,handlingTime: e.target.value})}
+       onChange = {handleChange}
        
        ></TextField>
        </Grid>
-       
-
-      </Grid>
-      
-     
-     
-      <div className= {classes.fileInput}>
+       <div className= {classes.fileInput}>
         <FileBase
           type="file"
           multiple={false}
@@ -143,6 +170,12 @@ const Form = () => {
           />
           <h6>Insert a Image of the Product</h6>
       </div> 
+
+      </Grid>
+      
+     
+     
+      
       <Grid container justifyContent="center">
       <Grid  container justifyContent="center" direction={"column"} spacing={2}>
      <Grid item justify="center">
