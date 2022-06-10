@@ -4,6 +4,9 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+import {Provider} from 'react-redux';
+import store from './container/store'
+
 import './assets/bg_img.jpg';
 import './assets/bgreg_img.jpg';
 
@@ -13,7 +16,9 @@ import './assets/bgreg_img.jpg';
 
 ReactDOM.render(
   <React.StrictMode>
+  <Provider store={store}>
     <App />
+  </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );
