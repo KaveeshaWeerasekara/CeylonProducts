@@ -6,8 +6,6 @@ import "./App.scss";
 import "./App.css";
 import "./css/ContactUs.css";
 
-
-
 import Login from "./components/loginAndSignup/pages/Login";
 import Register from "./components/loginAndSignup/pages/Register";
 
@@ -15,6 +13,7 @@ import Register from "./components/loginAndSignup/pages/Register";
 import AppLayout from "./components/Admin Panel/Layout/AppLayout";
 import Dashboard from "./Pages/Admin Panel/Dashboard/Dashboard";
 import SellersTable from "./Pages/Admin Panel/Sellers/SellersTable";
+
 
 import Categorys from "./Pages/Admin Panel/Products/Categories";
 import ProductTable from "./Pages/Admin Panel/Products/ProductTable";
@@ -29,12 +28,16 @@ import ContactUsPage from "./Pages/Client Panel/ContactUsPage";
 
 //Import Component (Pages) - Seller
 import SellerRegistration from "./components/seller Panel/SellerRegistration";
+import SDashboard from "./Pages/Seller Panel/Dashboard";
+import SEarnings from "./Pages/Seller Panel/Earnings";
 
 //Import Page - Form
 import Formview from "./Pages/Client Panel/products/Form";
 
 //Import page- ProductsView
 import ProductsView from "./Pages/Client Panel/products/ProductsView";
+import AppLayout1 from "./components/seller Panel/Layout/AppLayout1";
+import Updates from "./components/seller Panel/Earnings/Updates/Updates1";
 
 
 
@@ -61,15 +64,29 @@ function App() {
           <Route path="Products/ProductDetails" element={<ProductTable />} />
         </Route>
       </Routes>
+
+
+
+      {/* Seller */}
+      <Routes>
+        <Route path="SellerPanel" element={<AppLayout1 />}>
+          <Route path="" element={<SDashboard />} />
+          <Route path="Sellers" element={<SellerRegistration />} />
+          <Route path="earnings" element={<SEarnings />} />
+        </Route>
+      </Routes>
+
+
       {/* Client */}
       <Routes>
         <Route path="/Home" element={<Home />} />
       </Routes>
 
-      {/* Seller */}
       <Routes>
-        <Route path="/Seller" element={<SellerRegistration />} />
+        <Route path="/ContactUs" element={<ContactUsPage />} />
       </Routes>
+
+
       {/*Form*/}
       <Routes>
         <Route path="/Form" element={<Formview />} />
