@@ -10,7 +10,10 @@ import Login from "./components/loginAndSignup/pages/Login";
 import Register from "./components/loginAndSignup/pages/Register";
 
 //Import components (Pages) - Admin
-import SellersTable from "./Pages/Admin Panel/SellersTable";
+import AppLayout from "./components/Admin Panel/Layout/AppLayout";
+import Dashboard from "./Pages/Admin Panel/Dashboard/Dashboard";
+import SellersTable from "./Pages/Admin Panel/Sellers/SellersTable";
+import Verification from "./Pages/Admin Panel/SellerVerification/Verification";
 
 //Import Component (Pages) - Client
 import Home from "./Pages/Client Panel/Home";
@@ -20,13 +23,16 @@ import ContactUsPage from "./Pages/Client Panel/ContactUsPage";
 
 //Import Component (Pages) - Seller
 import SellerRegistration from "./components/seller Panel/SellerRegistration";
-import Dashboard from "./Pages/Admin Panel/Dashboard";
+import SDashboard from "./Pages/Seller Panel/Dashboard";
+import SEarnings from "./Pages/Seller Panel/Earnings";
 
 //Import Page - Form
 import Formview from "./Pages/Client Panel/products/Form";
 
 //Import page- ProductsView
 import ProductsView from "./Pages/Client Panel/products/ProductsView";
+import AppLayout1 from "./components/seller Panel/Layout/AppLayout1";
+import Updates from "./components/seller Panel/Earnings/Updates/Updates1";
 
 function App() {
   return (
@@ -37,25 +43,33 @@ function App() {
         <Route path="/login" element={<Login />}></Route>
         <Route path="/register" element={<Register />}></Route>
       </Routes>
-
       {/* Admin */}
       <Routes>
-        <Route path="/AdminPanel/" element={<SellersTable />} />
+        <Route path="AdminPanel" element={<AppLayout />}>
+          <Route index element={<Dashboard />} />
+          <Route path="Sellers" element={<SellersTable />} />
+          <Route path="Verification" element={<Verification />} />
+        </Route>
+      </Routes>
+
+
+      {/* Seller */}
+      <Routes>
+        <Route path="SellerPanel" element={<AppLayout1 />}>
+          <Route path="" element={<SDashboard />} />
+          <Route path="Sellers" element={<SellerRegistration />} />
+          <Route path="earnings" element={<SEarnings />} />
+        </Route>
       </Routes>
 
       {/* Client */}
       <Routes>
         <Route path="/Home" element={<Home />} />
       </Routes>
-
       <Routes>
         <Route path="/ContactUs" element={<ContactUsPage />} />
       </Routes>
 
-      {/* Seller */}
-      <Routes>
-        <Route path="/Seller" element={<SellerRegistration />} />
-      </Routes>
       {/*Form*/}
       <Routes>
         <Route path="/Form" element={<Formview />} />
@@ -63,10 +77,6 @@ function App() {
       {/*ProductsView*/}
       <Routes>
         <Route path="/ProductsView" element={<ProductsView />} />
-      </Routes>
-
-      <Routes>
-        <Route path="/Dashboard" element={<Dashboard />} />
       </Routes>
     </BrowserRouter>
   );
