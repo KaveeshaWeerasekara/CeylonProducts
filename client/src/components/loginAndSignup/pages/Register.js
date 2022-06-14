@@ -24,7 +24,7 @@ export default function Register() {
 const handleSubmit=(event)=>{
 
     event.preventDefault();
-    console.log("sends")
+    //console.log("sends")
     const newUser={
         username,
         email,

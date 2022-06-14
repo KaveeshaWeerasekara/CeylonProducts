@@ -27,8 +27,18 @@ export default function Login() {
       password
     }
 
-    axios.post("http://localhost:5000/api/login", userCredential).then((res) => {
-      console.log(res.data);
+    axios.post("http://localhost:5000/api/login", userCredential)
+    // .then((res) => {
+    //   console.log(res.data);
+      .then(response=>{
+          if(response.data.token){
+          localStorage.setItem("x-access-token",response.data.token)
+          }
+          return Promise.resolve(response.data)
+     })
+      .catch(error=>{
+       return Promise.reject(error.response.data)
+        //         })
   })
 
 
