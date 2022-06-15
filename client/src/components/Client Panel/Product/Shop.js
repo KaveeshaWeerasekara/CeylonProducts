@@ -61,7 +61,7 @@ const classes = useStyles();
   <div className={classes.myDiv7}>
   <TextField className={classes.searchText}
       
-       variant="outlined"
+       variant="filled"
        label="Search Products"
        //placeholder="Search here to find products"
        Width ="30%"
