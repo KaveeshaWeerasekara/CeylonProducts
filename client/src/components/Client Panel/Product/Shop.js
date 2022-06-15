@@ -61,7 +61,7 @@ const classes = useStyles();
   <div className={classes.myDiv7}>
   <TextField className={classes.searchText}
       
-       variant="outlined"
+       variant="filled"
        label="Search Products"
        //placeholder="Search here to find products"
        Width ="30%"
@@ -113,6 +113,7 @@ const classes = useStyles();
      
      <Typography className={classes.titleColor2} align='center' variant="subtitile1"  component="p">{products.price}</Typography>
      </div>
+     
      <div className={classes.myDiv10}>
      <CardActions className={classes.cardActions}>
 

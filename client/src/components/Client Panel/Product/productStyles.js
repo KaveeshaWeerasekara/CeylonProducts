@@ -68,8 +68,10 @@ export default makeStyles({
   },
   
   oneCard:{
-    width:"25% ",
+    width:"19% ",
     justifyContent:"center",
+    marginLeft:"3%",
+    marginRight:"3%"
   },
 
   appBar: {
@@ -136,6 +138,7 @@ export default makeStyles({
     backgroundColor:'#c96838',
     justifyContent:'center',
     alignItems: 'center',
+    marginLeft:'5%'
 
   },
   myDiv3:
@@ -176,6 +179,9 @@ export default makeStyles({
     width: '100%',
     justifyContent:"center",
     allignItems:"center",
+    marginLeft:"25%",
+    marginTop:"20px",
+    marginBottom:"10px"
   
   },
 
