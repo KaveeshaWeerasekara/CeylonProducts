@@ -37,8 +37,9 @@ const Form = () => {
 
   const handleSubmit = (event)=> {
     event.preventDefault();
+    //form data
 
-    const newListing ={
+    const newData ={
       title: postData.title,
       category: selects.category,
       description: postData.description,
@@ -48,19 +49,19 @@ const Form = () => {
       photo: postData.photo
     }
     
-    axios.post('http://localhost:5000/api/listings/createListing',newListing)
+    axios.post('http://localhost:5000/api/listings/createListing',newData)
 
-    const newProduct ={
-      title: postData.title,
-      category: selects.category,
-      description: postData.description,
-      quantity: postData.quantity,
-      price: postData.price,
-      handlingTime: postData.handlingTime,
-      photo: postData.photo
-    }
+    // const newProduct ={
+    //   title: postData.title,
+    //   category: selects.category,
+    //   description: postData.description,
+    //   quantity: postData.quantity,
+    //   price: postData.price,
+    //   handlingTime: postData.handlingTime,
+    //   photo: postData.photo
+    // }
     
-    axios.post('http://localhost:5000/api/shopProducts/createProduct',newProduct)
+    axios.post('http://localhost:5000/api/shopProducts/createProduct',newData)
 
   }
   const handleClick = (event)=> {

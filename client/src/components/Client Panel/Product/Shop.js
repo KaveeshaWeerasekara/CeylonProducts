@@ -113,6 +113,7 @@ const classes = useStyles();
      
      <Typography className={classes.titleColor2} align='center' variant="subtitile1"  component="p">{products.price}</Typography>
      </div>
+     
      <div className={classes.myDiv10}>
      <CardActions className={classes.cardActions}>
 
