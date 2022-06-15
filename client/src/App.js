@@ -35,7 +35,12 @@ import SEarnings from "./Pages/Seller Panel/Earnings";
 import Formview from "./Pages/Client Panel/products/Form";
 
 //Import page- ProductsView
-import ProductsView from "./Pages/Client Panel/products/ProductsView";
+import ProductView from "./components/Client Panel/Product/ProductView";
+
+//Import page- Shop
+import Shop from "./components/Client Panel/Product/Shop";
+
+
 import AppLayout1 from "./components/seller Panel/Layout/AppLayout1";
 import Updates from "./components/seller Panel/Earnings/Updates/Updates1";
 
@@ -91,9 +96,14 @@ function App() {
       <Routes>
         <Route path="/Form" element={<Formview />} />
       </Routes>
-      {/*ProductsView*/}
+      {/*ProductView*/}
       <Routes>
-        <Route path="/ProductsView" element={<ProductsView />} />
+        <Route path="/ProductView" element={<ProductView />} />
+      </Routes>
+
+        {/*Shop*/}
+        <Routes>
+        <Route path="/Shop" element={<Shop />} />
       </Routes>
 
       <Routes>

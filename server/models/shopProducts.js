@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const listingSchema = mongoose.Schema(
+const productSchema = mongoose.Schema(
     {
         title:{type: String},
         category: {type: String},
@@ -13,4 +13,4 @@ const listingSchema = mongoose.Schema(
 );
 
 
-module.exports = mongoose.model("listingmessage", listingSchema);
+module.exports = mongoose.model("shopProducts", productSchema);
