@@ -13,6 +13,7 @@ const navigation = [
 
   { name: "Shop", href: "/Seller" },
   { name: "Admin Panel", href: "/AdminPanel/" },
+  
 ];
 
 function classNames(...classes) {
@@ -146,6 +147,13 @@ export default function Nav() {
                 >
                   Login
                 </a>
+                {/* <br/>
+                <a
+                  href="/login"
+                  className=" px-3 py-2 text-sm rounded-md font-medium text-gray-100 bg-[#e97e48e0] hover:bg-[#ee9b72e0]  hover:text-white   transition duration-150 ease-in-out"
+                >
+                  Logout
+                </a> */}
               </div>
             </div>
           </div>

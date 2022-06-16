@@ -39,8 +39,8 @@ export default function RegisterForm(props) {
                     </div>
 
                     <div className="form-group">
-                        <button className='btn primary-btn' type="submit">
-                            Register
+                        <button className='btn primary-btn' type="submit" >
+                         <a href='/login' >  Register </a>
                         </button>
                     </div>
 

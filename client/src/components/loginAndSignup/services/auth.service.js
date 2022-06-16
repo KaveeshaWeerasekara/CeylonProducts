@@ -1,9 +1,9 @@
-import axios from 'axios';
+// import axios from 'axios';
 
-const baseURL="http://localhost:5000/api";
+// const baseURL="http://localhost:5000/api";
 
 
-//register request
+// //register request
 // export const register=(newUser)=>{
 //     console.log(newUser);
 //     console.log("auther");
@@ -19,7 +19,7 @@ const baseURL="http://localhost:5000/api";
 //         })
 // }
 
-//login request
+// //login request
 // export const login=(userCredential)=>{
 //    return axios.post(`${baseURL}/login`,userCredential)
 //         .then(response=>{
@@ -33,7 +33,7 @@ const baseURL="http://localhost:5000/api";
 //         })
 // }
 
-// export{
-//     register,
-//     login
-// }
+// // export{
+// //     register,
+// //     login
+// // }
