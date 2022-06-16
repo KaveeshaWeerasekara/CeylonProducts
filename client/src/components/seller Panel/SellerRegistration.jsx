@@ -84,6 +84,7 @@ export default function SellerRegistration() {
                   name="lastName"
                   autoComplete="family-name"
                 />
+                
               </Grid>
               <Grid item xs={12} sm={6}>
                 <TextField

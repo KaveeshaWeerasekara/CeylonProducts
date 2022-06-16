@@ -14,7 +14,6 @@ import AppLayout from "./components/Admin Panel/Layout/AppLayout";
 import Dashboard from "./Pages/Admin Panel/Dashboard/Dashboard";
 import SellersTable from "./Pages/Admin Panel/Sellers/SellersTable";
 
-
 import Categorys from "./Pages/Admin Panel/Products/Categories";
 import ProductTable from "./Pages/Admin Panel/Products/ProductTable";
 
@@ -37,9 +36,6 @@ import Formview from "./Pages/Client Panel/products/Form";
 //Import page- ProductsView
 import ProductsView from "./Pages/Client Panel/products/ProductsView";
 import AppLayout1 from "./components/seller Panel/Layout/AppLayout1";
-import Updates from "./components/seller Panel/Earnings/Updates/Updates1";
-
-
 
 
 function App() {
@@ -65,27 +61,26 @@ function App() {
         </Route>
       </Routes>
 
-
-
       {/* Seller */}
       <Routes>
         <Route path="SellerPanel" element={<AppLayout1 />}>
           <Route path="" element={<SDashboard />} />
-          <Route path="Sellers" element={<SellerRegistration />} />
+
           <Route path="earnings" element={<SEarnings />} />
         </Route>
       </Routes>
-
 
       {/* Client */}
       <Routes>
         <Route path="/Home" element={<Home />} />
       </Routes>
+      <Routes>
+        <Route path="/Seller" element={<SellerRegistration />} />
+      </Routes>
 
       <Routes>
         <Route path="/ContactUs" element={<ContactUsPage />} />
       </Routes>
-
 
       {/*Form*/}
       <Routes>
@@ -95,12 +90,6 @@ function App() {
       <Routes>
         <Route path="/ProductsView" element={<ProductsView />} />
       </Routes>
-
-      <Routes>
-        <Route path="/ContactUs" element={<ContactUsPage />} />
-      </Routes>
-
-      
     </BrowserRouter>
   );
 }
