@@ -15,7 +15,7 @@ const sidebarNavItems = [
   },
   {
     display: "Orders",
-    icon: <i className="bx bx-user"></i>,
+    icon: <i className="bx bx-receipt"></i>,
     to: "/SellerPanel/Orders",
     section: "Orders",
   },
@@ -27,7 +27,7 @@ const sidebarNavItems = [
   },
   {
     display: "Earnings",
-    icon: <i class="bx bx-package"></i>,
+    icon: <i class="bx bxs-badge-dollar"></i>,
     to: "/SellerPanel/Earnings",
     section: "Earnings",
   },

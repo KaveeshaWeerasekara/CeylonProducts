@@ -26,8 +26,11 @@ connectDb();
 
 
 const PORT = process.env.PORT || 5000;
-// Define Routes
 
+const router = require ('./routes/api/listings.js');
+
+
+// Define Routes
 app.use("/api/chats", require("./routes/api/chats"));
 app.use("/api/wishlist", require("./routes/api/wishlist"));
 app.use("/api/carts", require("./routes/api/carts"));
