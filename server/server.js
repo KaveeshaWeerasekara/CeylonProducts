@@ -23,8 +23,12 @@ app.use(cors('http://localhost:3006/'));
 // connect Database
 connectDb();
 
+
+
 const PORT = process.env.PORT || 5000;
+
 const router = require ('./routes/api/listings.js');
+
 
 // Define Routes
 app.use("/api/chats", require("./routes/api/chats"));
@@ -39,9 +43,13 @@ app.use("/api/users", require("./routes/api/users"));
 app.use("/api/messages", require("./routes/api/messages"));
 app.use("/api/category", require("./routes/api/category"));
 app.use("/api/contactForm", require("./routes/api/contactform"));
+app.use("/api/listings", require("./routes/api/listings"));
+app.use("/api/shopProducts", require("./routes/api/shopProducts"));
+app.use("/api/blogUserRoutes",require("./routes/api/blogUserRoutes"));
+app.use("/api/blogRoutes",require("./routes/api/blogRoutes"));
 
 
-app.use('/api/listings', router);
+
 app.use('/api',require('./routes/api/login')); 
 
 

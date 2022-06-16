@@ -12,6 +12,7 @@ const navigation = [
   { name: "Blog", href: "#" },
   { name: "Shop", href: "#" },
   { name: "Our Story", href: "/AdminPanel/" },
+
 ];
 
 function classNames(...classes) {

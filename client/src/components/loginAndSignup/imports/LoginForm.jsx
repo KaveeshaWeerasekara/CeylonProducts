@@ -27,7 +27,7 @@ export default function LoginForm(props) {
 
             <div className="form-group form-box">
             <i className='icon lock'></i>
-                <input type="text" id="password" onChange={e=>setPassword(e.target.value)} className="input-text" placeholder="password"/>
+                <input type="password" id="password" onChange={e=>setPassword(e.target.value)} className="input-text" placeholder="password"/>
             </div>
 
             <div className="form-group ">

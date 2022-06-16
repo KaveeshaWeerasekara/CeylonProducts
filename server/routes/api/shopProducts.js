@@ -5,19 +5,17 @@ const { body } = require("express-validator");
 
 
 // bring the products controller
-const Listings = require("../../controllers/listings")
+const Products = require("../../controllers/shopProducts")
 
 // @route   GET /api/products/createproduct
 
-router.post("/createListing", Listings.createListings);
+router.post("/createProduct", Products.createProducts);
 
 
 // @route   post /api/products/getproduct
 
-router.get("/getListing", Listings.getListings);
+router.get("/getProduct", Products.getProducts);
 
-// @route   post /api/products/getproduct
 
-router.delete(`/deleteListings/:id`, Listings.deleteListings);
 
 module.exports = router;

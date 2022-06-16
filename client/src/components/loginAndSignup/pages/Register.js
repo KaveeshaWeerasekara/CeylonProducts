@@ -4,8 +4,9 @@ import React,{useState} from 'react'
 import BaseRegister from '../../loginAndSignup/imports/BaseRegister';
 import RegisterForm from '../../loginAndSignup/imports/RegisterForm';
 
-//import {useNavigate} from 'react-router-dom';
+import {useNavigate} from 'react-router-dom';
 import axios from 'axios';
+//import { Navigate } from 'react-router-dom';
 
 export default function Register() {
 
@@ -14,9 +15,11 @@ export default function Register() {
     const[password,setPassword]=useState("")
     const[passwordCheck,setPasswordCheck]=useState("")
 
+    const [errorMessage,setError]=useState("")
+
 //
 // const dispatch = useDispatch()
-// const navigate = useNavigate()
+const navigate = useNavigate()
 
 
 
@@ -24,7 +27,7 @@ export default function Register() {
 const handleSubmit=(event)=>{
 
     event.preventDefault();
-    console.log("sends")
+    //console.log("sends")
     const newUser={
         username,
         email,
@@ -42,9 +45,17 @@ const handleSubmit=(event)=>{
     //     console.log(res.data);
     // })
 
-    axios.post("http://localhost:5000/api/register", newUser).then((res) => {
+    axios.post("http://localhost:5000/api/register", newUser)
+    .then((res) => {
             console.log(res.data);
+            navigate('/login');
         })
+        .catch(error =>{
+            //const login=dispatch(loginAction(userCredential))
+           
+            setError(error.err)
+           alert(error);
+          }) 
 
 
     // const user={username:"admin",email:"admin@gmail.com",password:"admin123",passwordCheck:"admin123"}
