@@ -12,18 +12,21 @@
 const express = require("express");
 const app = express();
 const connectDb = require("./config/db");
+const cors=require('cors');
 
 
 // If extended is false, you can not post "nested object"
 app.use(express.json({ extended: false }));
+app.use(cors('http://localhost:3006/'));
+
 
 // connect Database
 connectDb();
 
 const PORT = process.env.PORT || 5000;
 const router = require ('./routes/api/listings.js');
-// Define Routes
 
+// Define Routes
 app.use("/api/chats", require("./routes/api/chats"));
 app.use("/api/wishlist", require("./routes/api/wishlist"));
 app.use("/api/carts", require("./routes/api/carts"));
@@ -39,6 +42,7 @@ app.use("/api/contactForm", require("./routes/api/contactform"));
 
 
 app.use('/api/listings', router);
+app.use('/api',require('./routes/api/login')); 
 
 
 
