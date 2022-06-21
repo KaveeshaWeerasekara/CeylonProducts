@@ -1,6 +1,9 @@
 const bcrypt=require('bcrypt');
 const User=require('../models/login');
+const Token=require('../models/token')
 const jwt=require('jsonwebtoken');
+const sendEmail=require('../utils/sendEmail');
+const crypto=require("crypto")
 
 
 //controller for register
@@ -82,12 +85,49 @@ const isMatch=await bcrypt.compare(password,user.password);
 if(!isMatch)
     return res.status(406).json({err:"invalid credentials"})
 
+const token=await new Token({
+    userId:user._id,
+    token:crypto.randomBytes(32).toString('hex')
 
+}).save();
+const url=`${process.env.BASE_URL}/${user._id}/verify/${token.token}`;
+await sendEmail(user.email,"verify Email",url);
+
+if(!user.verified){
+    let token=await Token.findOne({userId:user._id});
+    if(!token){
+        const token=await new Token({
+            userId:user._id,
+            token:crypto.randomBytes(32).toString('hex')
+        
+        }).save();
+        const url=`${process.env.BASE_URL}/${user._id}/verify/${token.token}`;
+        await sendEmail(user.email,"verify Email",url);
+        
+    }return res.status(400).send({message:"An email sent to your account"})
+}
 
 //create jwt token
  JWT_SECRET="Kk7Bpyfvq9Dd4huGWK2yLKPnmGPktX8pr7VczdVTupuHshzrRN";
-const token=jwt.sign({id:user._id},JWT_SECRET)
 
+if(isMatch){
+    const token=jwt.sign(
+        {
+            id:user._id
+        },
+        JWT_SECRET,{
+        expiresIn:"1hr"
+    })
+    return res.json({
+        status:"ok",
+        user:token
+    })
+}else{
+    return res.json({
+        status:"error",
+        user:false
+    })
+}
 
 res.json({token,username:user.username,email:user.email})
 
@@ -96,6 +136,8 @@ res.json({token,username:user.username,email:user.email})
     }
    
 };
+
+
 
 
 //delete user controller
@@ -107,6 +149,20 @@ exports.delete=async(req,res)=>{
         res.status(500).json({err:error.message||"Error while deleting user"})
     }
 }
+
+// const verifyToken=(req,res,next)=>{
+//     const header=req.headers['authorization'];
+//     const token=header.split("")[1];
+//     if(!token){
+//         res.status(404).json({message:"No token found"})
+//     }
+//     jwt.verify(String(token),JWT_SECRET,(err,user)=>{
+//         if(err){
+//           return  res.status(400).json({message:"Invalid token"})
+//         }
+//         console.log(user.id);
+//     })
+// }
 
 exports.getAllUser=async(req,res,next)=>{
     let users;
@@ -120,3 +176,5 @@ exports.getAllUser=async(req,res,next)=>{
     }
     return res.status(200).json({users});
 }
+
+// exports.verifyToken=verifyToken;

@@ -5,7 +5,7 @@ import LoginForm from '../../loginAndSignup/imports/LoginForm';
 import axios from 'axios';
 
 
- //import {useDispatch,useStore} from 'react-redux';
+ import {useDispatch,useStore} from 'react-redux';
  //import { loginAction } from '../../../container/actions';
 import { useNavigate } from 'react-router-dom';
 
@@ -15,7 +15,7 @@ export default function Login() {
   const[password,setPassword]=useState("")
   const [errorMessage,setError]=useState("")
 
-  //const dispath = useDispatch()
+  const dispath = useDispatch()
   // const store=useStore()
   const navigate=useNavigate()
 
@@ -27,6 +27,10 @@ export default function Login() {
       email,
       password
     }
+
+  
+
+
     //const login=loginAction(userCredential)
    
     axios.post("http://localhost:5000/api/login", userCredential)

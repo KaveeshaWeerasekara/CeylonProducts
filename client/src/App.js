@@ -43,6 +43,19 @@ import Shop from "./components/Client Panel/Product/Shop";
 import AppLayout1 from "./components/seller Panel/Layout/AppLayout1";
 import OrderDetails from "./Pages/Seller Panel/OrderDetails";
 
+
+//Import page-Blogs
+import Blogs from "./Pages/Client Panel/BlogPosts/Blogs";
+import { AddBlog } from "./Pages/Client Panel/BlogPosts/AddBlogs";
+
+
+//Import Refund pages
+import Refund from "./Pages/Client Panel/Refunds/Refund";
+
+//Import Help Center Pages
+import HelpCenter from "./Pages/Client Panel/HelpCenter/HelpCenter";
+
+
 function App() {
   return (
     <BrowserRouter>
@@ -100,6 +113,29 @@ function App() {
       <Routes>
       <Route path="/Sellers" element={<SellerRegistration />} />
       </Routes>
+
+      {/* BlogPost Module */}
+      <Routes>
+        <Route path="/AllBlogs" element={<Blogs />} />
+      </Routes>
+
+      <Routes>
+        <Route path="/blogs/add" element={<AddBlog />} />
+      </Routes>
+
+
+      {/* Refund Request module */}
+      <Routes>
+        <Route path="/Refund" element={<Refund />} />
+      </Routes>
+
+
+      {/* Help Center page */}
+      <Routes>
+        <Route path="/HelpCenter" element={<HelpCenter />} />
+      </Routes>
+
+
     </BrowserRouter>
   );
 }
