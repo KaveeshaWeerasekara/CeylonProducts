@@ -1,8 +1,9 @@
 import React from 'react'
-import {Box, Card, CardContent, CardMedia, Grid, ImageList, ImageListItem, InputLabel, Paper, Typography} from '@mui/material'
+import {Box, Card, CardContent, CardMedia, Grid, ImageList, ImageListItem, InputLabel, Link, Paper, Typography} from '@mui/material'
 import Nav from '../../../components/Client Panel/Nav'
 import Footer from '../../../components/Client Panel/Footer'
 import '../../../sass/HelpCenter/HelpCenter.css'
+import GettingMsg from './GettingMsg'
 
 
 
@@ -89,7 +90,7 @@ export default function HelpCenter() {
                     </ol>
                     {/* </div> */}
 
-                   <a href='#'><h4>more questions--</h4></a> 
+                   <a href="/GettingMsg"><h4>more questions--</h4></a> 
 
                     </Box>
         </div>
@@ -112,7 +113,7 @@ export default function HelpCenter() {
                 >
                     <div className="container2">
                         <div className="items2">
-                             <Card sx={{ maxWidth: 345 }}>
+                        <a href='/BuyingProcess'> <Card sx={{ maxWidth: 345 }}>
                                 <CardMedia
                                     component="img"
                                     height="140"
@@ -120,6 +121,7 @@ export default function HelpCenter() {
                                     alt="green iguana"
                                 />
                             </Card>
+                            </a>
                             </div>
                         <div className="items2">
                         <Card sx={{ maxWidth: 345 }}>
@@ -152,14 +154,15 @@ export default function HelpCenter() {
                             </Card>
                         </div>
                         <div className="items2"> 
-                        <Card sx={{ maxWidth: 345 }}>
+                      <a href='/RequestRefund'>  <Card sx={{ maxWidth: 345 }}>
                                 <CardMedia
                                     component="img"
                                     height="140"
                                     image="https://cdn4.iconfinder.com/data/icons/logistics-and-delivery-vol-2/64/easy-returns-512.png"
-                                    alt="green iguana"
+                                    alt="refund"
                                 />
                             </Card>
+                            </a>
                         </div>
                         <div className="items2">
                         <Card sx={{ maxWidth: 345 }}>
@@ -173,7 +176,7 @@ export default function HelpCenter() {
                         </div>
                     </div>
                     <br></br>
-                    <h2 align='center'>--Our Services--</h2>
+                    <h2 align='center'>--Popular Solutions--</h2>
                     </Box>
         </div>
       </div>

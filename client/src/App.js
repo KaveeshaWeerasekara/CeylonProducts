@@ -54,7 +54,12 @@ import Refund from "./Pages/Client Panel/Refunds/Refund";
 
 //Import Help Center Pages
 import HelpCenter from "./Pages/Client Panel/HelpCenter/HelpCenter";
-
+import GettingMsg from "./Pages/Client Panel/HelpCenter/GettingMsg";
+import RequestRefund from "./Pages/Client Panel/HelpCenter/RequestRefund";
+import ReportType from "./Pages/Client Panel/HelpCenter/ReportType";
+import Reportrestricted from "./Pages/Client Panel/HelpCenter/Reportrestricted";
+import ReturnProduct from "./Pages/Client Panel/HelpCenter/ReturnProduct";
+import BuyingProcess from "./Pages/Client Panel/HelpCenter/BuyingProcess";
 
 function App() {
   return (
@@ -133,6 +138,13 @@ function App() {
       {/* Help Center page */}
       <Routes>
         <Route path="/HelpCenter" element={<HelpCenter />} />
+        <Route path="/GettingMsg" element={<GettingMsg />} />
+        <Route path="/RequestRefund" element={<RequestRefund />} />
+        <Route path="/ReportType" element={<ReportType />} />
+        <Route path="/Reportrestricted" element={<Reportrestricted />} />
+        <Route path="/ReturnProduct" element={<ReturnProduct />} />
+        <Route path="/BuyingProcess" element={<BuyingProcess />} />
+
       </Routes>
 
 

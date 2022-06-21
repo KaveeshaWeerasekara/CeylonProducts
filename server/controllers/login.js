@@ -85,27 +85,27 @@ const isMatch=await bcrypt.compare(password,user.password);
 if(!isMatch)
     return res.status(406).json({err:"invalid credentials"})
 
-const token=await new Token({
-    userId:user._id,
-    token:crypto.randomBytes(32).toString('hex')
+// const token=await new Token({
+//     userId:user._id,
+//     token:crypto.randomBytes(32).toString('hex')
 
-}).save();
-const url=`${process.env.BASE_URL}/${user._id}/verify/${token.token}`;
-await sendEmail(user.email,"verify Email",url);
+// }).save();
+// const url=`${process.env.BASE_URL}/${user._id}/verify/${token.token}`;
+// await sendEmail(user.email,"verify Email",url);
 
-if(!user.verified){
-    let token=await Token.findOne({userId:user._id});
-    if(!token){
-        const token=await new Token({
-            userId:user._id,
-            token:crypto.randomBytes(32).toString('hex')
+// if(!user.verified){
+//     let token=await Token.findOne({userId:user._id});
+//     if(!token){
+//         const token=await new Token({
+//             userId:user._id,
+//             token:crypto.randomBytes(32).toString('hex')
         
-        }).save();
-        const url=`${process.env.BASE_URL}/${user._id}/verify/${token.token}`;
-        await sendEmail(user.email,"verify Email",url);
+//         }).save();
+//         const url=`${process.env.BASE_URL}/${user._id}/verify/${token.token}`;
+//         await sendEmail(user.email,"verify Email",url);
         
-    }return res.status(400).send({message:"An email sent to your account"})
-}
+//     }return res.status(400).send({message:"An email sent to your account"})
+// }
 
 //create jwt token
  JWT_SECRET="Kk7Bpyfvq9Dd4huGWK2yLKPnmGPktX8pr7VczdVTupuHshzrRN";
