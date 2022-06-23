@@ -59,7 +59,7 @@ export default function Topbar() {
                   </a>
                 )}
               </Menu.Item>
-              <Menu.Item>
+              {/* <Menu.Item>
                 {({ active }) => (
                   <a
                     href="#"
@@ -71,7 +71,7 @@ export default function Topbar() {
                     Settings
                   </a>
                 )}
-              </Menu.Item>
+              </Menu.Item> */}
               <Menu.Item>
                 {({ active }) => (
                   <a

@@ -1,4 +1,5 @@
 import * as React from "react";
+import { useNavigate } from "react-router-dom";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
 import TextField from "@mui/material/TextField";
@@ -10,17 +11,83 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import img from "./logo.jpeg";
 import "./SellerRegistration.css";
 import Input from "@mui/material/Input";
+import axios from "axios";
 
 const theme = createTheme();
 
 export default function SellerRegistration() {
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get("email"),
-      password: data.get("password"),
-    });
+  const [values, setValues] = React.useState({
+    firstName: "",
+    middleName: "",
+    lastName: "",
+    password: "",
+    tpnumber: "",
+    Email: "",
+    streetNo: "",
+    Street: "",
+    city: "",
+    province: "",
+    country: "",
+    img: "",
+    add: "",
+    postalCode: "",
+    nic: "",
+    validate: "0",
+  });
+  const navigate = useNavigate();
+  const handleChange = (prop) => (event) => {
+    setValues({ ...values, [prop]: event.target.value });
+  };
+
+  const handleSubmit = async (event) => {
+    //leets validatoin
+    const re = /^[A-Za-z]+$/;
+    // const number = /^[0-9]+$/;
+    //email validatio
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
+    if (!values.firstName) {
+      alert("First name is required");
+    } else if (!re.test(values.firstName)) {
+      alert("Enter only letters to firstname");
+    } else if (values.firstName.length < 4) {
+      alert("First name should be more than 4 characters");
+    } else if (!values.lastName) {
+      alert("Last name is required");
+    } else if (!re.test(values.lastName)) {
+      alert("Enter only letters to lastnames");
+    } else if (!values.tpnumber) {
+      alert("Phone  number is required");
+    } else if (values.tpnumber.length < 10) {
+      alert("Phone  number should have 10 characters ");
+    } else if (!regex.test(values.Email)) {
+      alert("Ëmail is not valid");
+    } else if (!values.Email) {
+      alert("Ëmail is required");
+    } else if (!values.streetNo) {
+      alert("Street No is required");
+    } else if (!values.Street) {
+      alert("Street is required");
+    } else if (!values.city) {
+      alert("City is required");
+    } else if (!values.province) {
+      alert("State/Province is required");
+    } else if (!values.postalCode) {
+      alert("Postal code is required");
+    } else if (!values.add) {
+      alert("Address verification image is required");
+    } else if (!values.nic) {
+      alert("NIC image is required");
+    } else {
+      await axios
+        .post("/api/users/createuser", values)
+        .then((res) => {
+          console.log(values);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+      navigate("/AdminPanel/Verification");
+    }
   };
 
   return (
@@ -68,11 +135,14 @@ export default function SellerRegistration() {
                 <TextField
                   autoComplete="given-name"
                   name="firstName"
+                  type="text"
+                  pattern="[a-zA-Z]*"
                   required
                   fullWidth
                   id="firstName"
                   label="First Name"
                   autoFocus
+                  onChange={handleChange("firstName")}
                 />
               </Grid>
               <Grid item xs={12} sm={6}>
@@ -83,8 +153,8 @@ export default function SellerRegistration() {
                   label="Last Name"
                   name="lastName"
                   autoComplete="family-name"
+                  onChange={handleChange("lastName")}
                 />
-                
               </Grid>
               <Grid item xs={12} sm={6}>
                 <TextField
@@ -95,6 +165,7 @@ export default function SellerRegistration() {
                   id="firstName"
                   label="Contact Name"
                   autoFocus
+                  // onChange={handleChange('lastName')}
                 />
               </Grid>
               <Grid item xs={12} sm={6}>
@@ -105,6 +176,7 @@ export default function SellerRegistration() {
                   label="Business Name"
                   name="lastName"
                   autoComplete="family-name"
+                  // onChange={handleChange('lastName')}
                 />
               </Grid>
               <Grid item xs={12} sm={6}>
@@ -115,7 +187,9 @@ export default function SellerRegistration() {
                   fullWidth
                   id="firstName"
                   label="Contact No"
+                  type="number"
                   autoFocus
+                  onChange={handleChange("tpnumber")}
                 />
               </Grid>
               <Grid item xs={12} sm={6}>
@@ -126,6 +200,7 @@ export default function SellerRegistration() {
                   label="Email"
                   name="lastName"
                   autoComplete="family-name"
+                  onChange={handleChange("Email")}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -136,6 +211,7 @@ export default function SellerRegistration() {
                   label="Street Address Line 01"
                   name="email"
                   autoComplete="email"
+                  onChange={handleChange("streetNo")}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -144,8 +220,9 @@ export default function SellerRegistration() {
                   fullWidth
                   id="email"
                   label="Street Address Line 02"
-                  name="email"
+                  name="Street Address Line 02"
                   autoComplete="email"
+                  onChange={handleChange("Street")}
                 />
               </Grid>
               <Grid item xs={12} sm={6}>
@@ -157,6 +234,7 @@ export default function SellerRegistration() {
                   id="firstName"
                   label="City"
                   autoFocus
+                  onChange={handleChange("city")}
                 />
               </Grid>
               <Grid item xs={12} sm={6}>
@@ -167,6 +245,7 @@ export default function SellerRegistration() {
                   label="State/Province"
                   name="lastName"
                   autoComplete="family-name"
+                  onChange={handleChange("province")}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -175,11 +254,13 @@ export default function SellerRegistration() {
                   fullWidth
                   name="password"
                   label="Postal/Zip Code"
-                  type="password"
+                  type="number"
                   id="password"
                   autoComplete="new-password"
+                  onChange={handleChange("postalCode")}
                 />
               </Grid>
+
               <Grid item xs={12}>
                 <Typography
                   className="header"
@@ -199,6 +280,7 @@ export default function SellerRegistration() {
                     multiple
                     type="file"
                     sx="mt : 10"
+                    onChange={handleChange("add")}
                   />
                 </label>
               </Grid>
@@ -221,12 +303,15 @@ export default function SellerRegistration() {
                     multiple
                     type="file"
                     sx="mt : 10"
+                    onChange={handleChange("nic")}
                   />
                 </label>
               </Grid>
             </Grid>
             <Button
-              type="submit"
+              onClick={() => {
+                handleSubmit();
+              }}
               fullWidth
               variant="contained"
               sx={{ mt: 3, mb: 2 }}

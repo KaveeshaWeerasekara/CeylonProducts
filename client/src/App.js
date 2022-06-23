@@ -13,10 +13,10 @@ import Register from "./components/loginAndSignup/pages/Register";
 import AppLayout from "./components/Admin Panel/Layout/AppLayout";
 import Dashboard from "./Pages/Admin Panel/Dashboard/Dashboard";
 import SellersTable from "./Pages/Admin Panel/Sellers/SellersTable";
-
+import OrderTable from "./Pages/Admin Panel/Orders/OrderTable";
+import Earnings from "./Pages/Admin Panel/Earnings/Earning";
 import Categorys from "./Pages/Admin Panel/Products/Categories";
 import ProductTable from "./Pages/Admin Panel/Products/ProductTable";
-
 import Verification from "./Pages/Admin Panel/SellerVerification/Verification";
 
 //Import Component (Pages) - Client
@@ -24,6 +24,8 @@ import Home from "./Pages/Client Panel/Home";
 
 //Import Component (Pages) - client
 import ContactUsPage from "./Pages/Client Panel/ContactUsPage";
+
+import Ourstory from "./Pages/Client Panel/Ourstory";
 
 //Import Component (Pages) - Seller
 import SellerRegistration from "./components/seller Panel/SellerRegistration";
@@ -34,8 +36,15 @@ import SEarnings from "./Pages/Seller Panel/Earnings";
 import Formview from "./Pages/Client Panel/products/Form";
 
 //Import page- ProductsView
-import ProductsView from "./Pages/Client Panel/products/ProductsView";
+import ProductView from "./components/Client Panel/Product/ProductView";
+
+//Import page- Shop
+import Shop from "./components/Client Panel/Product/Shop";
+
+
 import AppLayout1 from "./components/seller Panel/Layout/AppLayout1";
+import OrderDetails from "./Pages/Seller Panel/OrderDetails";
+import SProfile from "./components/seller Panel/SellerProfile/SProfile";
 
 
 function App() {
@@ -52,11 +61,10 @@ function App() {
         <Route path="AdminPanel" element={<AppLayout />}>
           <Route index element={<Dashboard />} />
           <Route path="Sellers" element={<SellersTable />} />
-
           <Route path="Products" element={<Categorys />} />
-
+          <Route path="Orders" element={<OrderTable />} />
+          <Route path="Earnings" element={<Earnings />} />
           <Route path="Verification" element={<Verification />} />
-
           <Route path="Products/ProductDetails" element={<ProductTable />} />
         </Route>
       </Routes>
@@ -65,8 +73,9 @@ function App() {
       <Routes>
         <Route path="SellerPanel" element={<AppLayout1 />}>
           <Route path="" element={<SDashboard />} />
-
+          <Route path="Orders" element={<OrderDetails />} />
           <Route path="earnings" element={<SEarnings />} />
+          <Route path="SProfile" element={<SProfile/>} />
         </Route>
       </Routes>
 
@@ -82,13 +91,26 @@ function App() {
         <Route path="/ContactUs" element={<ContactUsPage />} />
       </Routes>
 
+      <Routes>
+        <Route path="/Ourstory" element={<Ourstory />} />
+      </Routes>
+
       {/*Form*/}
       <Routes>
         <Route path="/Form" element={<Formview />} />
       </Routes>
-      {/*ProductsView*/}
+      {/*ProductView*/}
       <Routes>
-        <Route path="/ProductsView" element={<ProductsView />} />
+        <Route path="/ProductView" element={<ProductView />} />
+      </Routes>
+
+        {/*Shop*/}
+        <Routes>
+        <Route path="/Shop" element={<Shop />} />
+      </Routes>
+
+      <Routes>
+      <Route path="/Sellers" element={<SellerRegistration />} />
       </Routes>
     </BrowserRouter>
   );

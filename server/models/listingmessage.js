@@ -2,16 +2,15 @@ const mongoose = require("mongoose");
 
 const listingSchema = mongoose.Schema(
     {
-        title: String,
-        category: String,
-        photo: String,
-        description: String,
-        quality: Number,
-        price: Number,
-        handlingtime: Number,
+        title:{type: String},
+        category: {type: String},
+        description: {type: String},
+        quantity: {type: String},
+        price: {type: String},
+        handlingTime: {type: String},
+        photo: {type: String}
     }
 );
 
-const listingmessage = mongoose.model('listingmessage', listingSchema);
 
-module.exports = listingmessage;
+module.exports = mongoose.model("listingmessage", listingSchema);

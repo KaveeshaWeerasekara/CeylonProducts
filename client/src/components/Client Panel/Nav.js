@@ -9,10 +9,10 @@ const navigation = [
 
   { name: "Home", href: "/Home" },
   { name: "Contact Us", href: "/ContactUs" },
-  { name: "Blog", href: "/SellerPanel/" },
+  { name: "Blog", href: "#" },
+  { name: "Shop", href: "#" },
+  { name: "Our Story", href: "/Ourstory/" },
 
-  { name: "Shop", href: "/Seller" },
-  { name: "Admin Panel", href: "/AdminPanel/" },
 ];
 
 function classNames(...classes) {
@@ -76,7 +76,7 @@ export default function Nav() {
                 </button>
 
                 {/* Profile dropdown */}
-                {/* <Menu as="div" className="ml-3 relative">
+                <Menu as="div" className="ml-3 relative">
                   <div>
                     <Menu.Button className="bg-gray-800 flex text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
                       <span className="sr-only">Open user menu</span>
@@ -113,7 +113,7 @@ export default function Nav() {
                       <Menu.Item>
                         {({ active }) => (
                           <a
-                            href="#"
+                            href="/SellerPanel/"
                             className={classNames(
                               active ? "bg-gray-100" : "",
                               "block px-4 py-2 text-sm text-gray-700"
@@ -138,14 +138,14 @@ export default function Nav() {
                       </Menu.Item>
                     </Menu.Items>
                   </Transition>
-                </Menu> */}
+                </Menu>
 
-                <a
+                {/* <a
                   href="/login"
                   className=" px-3 py-2 text-sm rounded-md font-medium text-gray-100 bg-[#e97e48e0] hover:bg-[#ee9b72e0]  hover:text-white   transition duration-150 ease-in-out"
                 >
                   Login
-                </a>
+                </a> */}
               </div>
             </div>
           </div>

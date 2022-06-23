@@ -29,18 +29,18 @@ export default function RegisterForm(props) {
                     </div>
 
                     <div className="form-group form-box">
-                        <input type="text" id="password" onChange={e=>setPassword(e.target.value)} className='input-text' placeholder='Password'/>
+                        <input type="password" id="password" onChange={e=>setPassword(e.target.value)} className='input-text' placeholder='Password'/>
                         <i className='icon lock'></i>
                     </div>
 
                     <div className="form-group form-box">
-                        <input type="text" id="passwordcheck" onChange={e=>setPasswordCheck(e.target.value)} className='input-text' placeholder='Verify Password'/>
+                        <input type="password" id="passwordcheck" onChange={e=>setPasswordCheck(e.target.value)} className='input-text' placeholder='Verify Password'/>
                         <i className='icon lock'></i>
                     </div>
 
                     <div className="form-group">
-                        <button className='btn primary-btn' type="submit">
-                            Register
+                        <button className='btn primary-btn' type="submit" >
+                         <a href='/login' >  Register </a>
                         </button>
                     </div>
 

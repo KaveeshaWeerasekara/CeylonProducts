@@ -2,10 +2,8 @@ const express = require("express");
 const router = express.Router();
 const { body } = require("express-validator");
 
-
-
 // bring the users controller
-const users = require("../../controllers/users")
+const users = require("../../controllers/users");
 
 // @route   GET /api/users/createuser
 router.post("/createuser", users.createuser);
@@ -18,6 +16,8 @@ router.get("/getuser/:id", users.getSpecificUser);
 
 // @route   PUT /api/users/updateuser/:id
 router.put("/updateuser/:id", users.updateUser);
+router.put("/verifyuser/:id", users.verifyUser);
+router.put("/notverifyuser/:id", users.notverifyUser);
 
 // @route   DELETE /api/users/deleteuser/:id
 router.delete("/deleteuser/:id", users.deleteUser);
@@ -25,4 +25,10 @@ router.delete("/deleteuser/:id", users.deleteUser);
 // @route   GET /api/users/getuserByCatergory/:id
 router.post("/getuserByCatergory", users.getuserByCatergory);
 
+// @route   GET /api/users/getvalidated
+router.get("/getuserByValidation", users.getuserByValidation);
+router.get("/getuserByNotValidation", users.getuserByNotValidation);
+
+// @route   GET /api/users/getuserByCatergory/:id
+router.get("/getnewusers", users.getnewusers);
 module.exports = router;

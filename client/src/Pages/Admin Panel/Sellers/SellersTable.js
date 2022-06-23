@@ -27,18 +27,17 @@ const SellersTable = () => {
 
   //Get database data using axios
   useEffect(() => {
-    const fetchPosts = async () => {
-      setLoading(true);
-      const res = await axios.get("/api/users/getusers");
-      if (res.data.success) {
-        setPosts(res.data.existingposts);
-        console.log(res.data);
-      }
-      setLoading(false);
-    };
     fetchPosts();
   }, []);
-
+  const fetchPosts = async () => {
+    setLoading(true);
+    const res = await axios.get("/api/users/getuserByNotValidation");
+    if (res.data.success) {
+      setPosts(res.data.existingposts);
+      console.log(res.data);
+    }
+    setLoading(false);
+  };
   const handlePageClick = ({ selected: selectedPage }) => {
     console.log("Selected Page", selectedPage);
     setCurrentPage(selectedPage);
@@ -179,7 +178,10 @@ const SellersTable = () => {
                             </td>
 
                             <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                              <UserMoreMenu />
+                              <UserMoreMenu
+                                post={post}
+                                fetchPosts={fetchPosts}
+                              />
                             </td>
                           </tr>
                         ))}

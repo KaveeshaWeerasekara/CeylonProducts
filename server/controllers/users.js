@@ -1,6 +1,5 @@
 const { body } = require("express-validator");
-const Users = require('../models/users');
-
+const Users = require("../models/users");
 
 exports.createuser = async function (req, res, next) {
   try {
@@ -8,37 +7,34 @@ exports.createuser = async function (req, res, next) {
       firstName: req.body.firstName,
       middleName: req.body.middleName,
       lastName: req.body.lastName,
-      userID: req.body.userID,
       password: req.body.password,
       tpnumber: req.body.tpnumber,
       Email: req.body.Email,
       streetNo: req.body.streetNo,
       Street: req.body.Street,
       city: req.body.city,
+      province: req.body.province,
       country: req.body.country,
-      postalCode: req.body.postalCode
-
+      postalCode: req.body.postalCode,
+      image: req.body.image,
+      add: req.body.add,
+      driving: req.body.nic,
+      val: req.body.validate,
     });
-    
-    const result = await createduser.save();
-    
-    res.json(result);
 
+    const result = await createduser.save();
+
+    res.send(result);
   } catch (error) {
     console.error(error.message);
     res.send("Server error");
   }
 };
 
-
-
-
 // const getuser = async (req, res, next) => {
 //   const users = await User.find().exec();
 //   res.json(users);
 // }
-
-
 
 // exports.getuser = getuser;
 
@@ -47,30 +43,30 @@ exports.getuser = async (req, res, next) => {
   Users.find().exec((err, users) => {
     if (err) {
       return res.status(400).json({
-        error:err,
+        error: err,
       });
     }
     return res.status(200).json({
-      success:true,
-      existingposts:users,
+      success: true,
+      existingposts: users,
     });
   });
 };
 
 //Get specific User
 exports.getSpecificUser = async (req, res, next) => {
-  let userid=req.params.id;
+  let userid = req.params.id;
 
-  Users.findById(userid,(err,post) => {
+  Users.findById(userid, (err, post) => {
     if (err) {
       return res.status(400).json({
-        success:false,
-        err
+        success: false,
+        err,
       });
     }
     return res.status(200).json({
-      success:true,
-      post
+      success: true,
+      post,
     });
   });
 };
@@ -81,6 +77,44 @@ exports.updateUser = async (req, res, next) => {
     req.params.id,
     {
       $set: req.body,
+    },
+    (err, user) => {
+      if (err) {
+        return res.status(400).json({
+          error: err,
+        });
+      }
+      return res.status(200).json({
+        success: "Updated Succesfully",
+      });
+    }
+  );
+};
+
+exports.verifyUser = async (req, res, next) => {
+  Users.findByIdAndUpdate(
+    req.params.id,
+    {
+      $set: { val: "1" },
+    },
+    (err, user) => {
+      if (err) {
+        return res.status(400).json({
+          error: err,
+        });
+      }
+      return res.status(200).json({
+        success: "Updated Succesfully",
+      });
+    }
+  );
+};
+
+exports.notverifyUser = async (req, res, next) => {
+  Users.findByIdAndUpdate(
+    req.params.id,
+    {
+      $set: { val: "2" },
     },
     (err, user) => {
       if (err) {
@@ -113,19 +147,79 @@ exports.deleteUser = async (req, res, next) => {
 
 //Filter users on category
 exports.getuserByCatergory = async (req, res, next) => {
-  let catergory=req.body.catergory;
+  let catergory = req.body.catergory;
   console.log(catergory);
   Users.find({
-    city:catergory
+    city: catergory,
   }).exec((err, users) => {
     if (err) {
       return res.status(400).json({
-        error:err,
+        error: err,
       });
     }
     return res.status(200).json({
-      success:true,
-      existingposts:users,
+      success: true,
+      existingposts: users,
+    });
+  });
+};
+
+//Get new users from last month
+exports.getnewusers = async (req, res, next) => {
+  let date = new Date();
+  let month = new Date().getMonth();
+  let prevMonth = date.setMonth(month - 1);
+  let formatPrevMonth = new Date(date.setMonth(month - 1));
+  Users.count({
+    createdAt: { $gte: formatPrevMonth },
+  }).exec((err, users) => {
+    if (err) {
+      return res.status(400).json({
+        error: err,
+      });
+    }
+    return res.status(200).json({
+      success: true,
+      noNewUsers: users,
+    });
+  });
+};
+
+//Filter users on category
+exports.getuserByValidation = async (req, res, next) => {
+  let catergory = req.body.catergory;
+  let validation = "0";
+  console.log(catergory);
+  Users.find({
+    val: validation,
+  }).exec((err, users) => {
+    if (err) {
+      return res.status(400).json({
+        error: err,
+      });
+    }
+    return res.status(200).json({
+      success: true,
+      existingposts: users,
+    });
+  });
+};
+
+exports.getuserByNotValidation = async (req, res, next) => {
+  let catergory = req.body.catergory;
+  let validation = "1";
+  console.log(catergory);
+  Users.find({
+    val: validation,
+  }).exec((err, users) => {
+    if (err) {
+      return res.status(400).json({
+        error: err,
+      });
+    }
+    return res.status(200).json({
+      success: true,
+      existingposts: users,
     });
   });
 };
