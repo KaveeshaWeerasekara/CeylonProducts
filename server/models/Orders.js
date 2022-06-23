@@ -12,7 +12,7 @@ const OrderSchema = new mongoose.Schema(
 
     status: {
       type: String,
-      required: true,
+      required: false,
     },
 
     name: {
@@ -21,7 +21,7 @@ const OrderSchema = new mongoose.Schema(
     },
     streetNo: {
       type: String,
-      required: true,
+      required: false,
     },
     street: {
       type: String,
@@ -33,7 +33,7 @@ const OrderSchema = new mongoose.Schema(
     },
     postalCode: {
       type: Number,
-      required: true,
+      required: false,
     },
     country: {
       type: String,
@@ -43,21 +43,21 @@ const OrderSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    sellerID: {
+    Sid: {
       type: String,
       required: true,
     },
     trackingProvider: {
       type: String,
-      required: true,
+      required: false,
     },
     trackingID: {
       type: String,
-      required: true,
+      required: false,
     },
     paymentID: {
       type: String,
-      required: true,
+      required: false,
     },
     amount: {
       type: Number,
@@ -70,7 +70,7 @@ const OrderSchema = new mongoose.Schema(
     //   },
     paymentType: {
       type: String,
-      required: true,
+      required: false,
     },
   },
   {

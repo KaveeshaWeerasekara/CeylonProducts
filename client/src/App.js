@@ -24,6 +24,7 @@ import Home from "./Pages/Client Panel/Home";
 
 //Import Component (Pages) - client
 import ContactUsPage from "./Pages/Client Panel/ContactUsPage";
+import SellerBuynowView from "./Pages/Client Panel/products/Buynow";
 
 //Import Component (Pages) - Seller
 import SellerRegistration from "./components/seller Panel/SellerRegistration";
@@ -115,13 +116,17 @@ function App() {
         <Route path="/ProductView" element={<ProductView />} />
       </Routes>
 
-        {/*Shop*/}
-        <Routes>
+      {/*Shop*/}
+      <Routes>
         <Route path="/Shop" element={<Shop />} />
       </Routes>
 
       <Routes>
-      <Route path="/Sellers" element={<SellerRegistration />} />
+        <Route path="/Sellers" element={<SellerRegistration />} />
+      </Routes>
+
+      <Routes>
+        <Route path="/Buynow" element={<SellerBuynowView />} />
       </Routes>
 
       {/* BlogPost Module */}
