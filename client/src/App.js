@@ -24,6 +24,7 @@ import Home from "./Pages/Client Panel/Home";
 
 //Import Component (Pages) - client
 import ContactUsPage from "./Pages/Client Panel/ContactUsPage";
+import SellerBuynowView from "./Pages/Client Panel/products/Buynow";
 
 //Import Component (Pages) - Seller
 import SellerRegistration from "./components/seller Panel/SellerRegistration";
@@ -43,6 +44,7 @@ import Shop from "./components/Client Panel/Product/Shop";
 import AppLayout1 from "./components/seller Panel/Layout/AppLayout1";
 import OrderDetails from "./Pages/Seller Panel/OrderDetails";
 
+
 //Import page- ProductDetails
 
 import ProductDetails from "./components/Client Panel/Product/ProductDetails";
@@ -50,6 +52,29 @@ import ProductDetails from "./components/Client Panel/Product/ProductDetails";
 //Import page- Cart
 
 import Cart from "./components/Client Panel/Product/Cart";
+
+
+//Import page-Blogs
+import Blogs from "./Pages/Client Panel/BlogPosts/Blogs";
+import { AddBlog } from "./Pages/Client Panel/BlogPosts/AddBlogs";
+import AddBlogsNew from "./Pages/Client Panel/BlogPosts/AddBlogsNew";
+import GettingBlogs from "./Pages/Client Panel/BlogPosts/GettingBlogs";
+
+
+
+//Import Refund pages
+import Refund from "./Pages/Client Panel/Refunds/Refund";
+
+//Import Help Center Pages
+import HelpCenter from "./Pages/Client Panel/HelpCenter/HelpCenter";
+import GettingMsg from "./Pages/Client Panel/HelpCenter/GettingMsg";
+import RequestRefund from "./Pages/Client Panel/HelpCenter/RequestRefund";
+import ReportType from "./Pages/Client Panel/HelpCenter/ReportType";
+import Reportrestricted from "./Pages/Client Panel/HelpCenter/Reportrestricted";
+import ReturnProduct from "./Pages/Client Panel/HelpCenter/ReturnProduct";
+import BuyingProcess from "./Pages/Client Panel/HelpCenter/BuyingProcess";
+import serachBar from "./Pages/Client Panel/BlogPosts/serachBar";
+
 
 
 function App() {
@@ -101,14 +126,25 @@ function App() {
         <Route path="/ProductView" element={<ProductView />} />
       </Routes>
 
-        {/*Shop*/}
-        <Routes>
+      {/*Shop*/}
+      <Routes>
         <Route path="/Shop" element={<Shop />} />
       </Routes>
 
       <Routes>
-      <Route path="/Sellers" element={<SellerRegistration />} />
+        <Route path="/Sellers" element={<SellerRegistration />} />
       </Routes>
+
+      <Routes>
+        <Route path="/Buynow" element={<SellerBuynowView />} />
+      </Routes>
+
+      {/* BlogPost Module */}
+      <Routes>
+        <Route path="/AllBlogs" element={<Blogs />} />
+        <Route path="/serachBar" element={<serachBar />}/>
+      </Routes>
+
       {/*ProductDetails*/}
       <Routes>
         <Route path="/ProductDetails/:id" element={<ProductDetails />} />
@@ -117,6 +153,35 @@ function App() {
        <Routes>
         <Route path="/Cart" element={<Cart />} />
       </Routes>
+
+
+      <Routes>
+        <Route path="/blogs/add" element={<AddBlog />} />
+        <Route path="/AddBlogsNew" element={<AddBlogsNew />} />
+        <Route path="/GettingBlogs" element={<GettingBlogs />} />
+      </Routes>
+
+
+      {/* Refund Request module */}
+      <Routes>
+        <Route path="/Refund" element={<Refund />} />
+      </Routes>
+
+
+      {/* Help Center page */}
+      <Routes>
+        <Route path="/HelpCenter" element={<HelpCenter />} />
+        <Route path="/GettingMsg" element={<GettingMsg />} />
+        <Route path="/RequestRefund" element={<RequestRefund />} />
+        <Route path="/ReportType" element={<ReportType />} />
+        <Route path="/Reportrestricted" element={<Reportrestricted />} />
+        <Route path="/ReturnProduct" element={<ReturnProduct />} />
+        <Route path="/BuyingProcess" element={<BuyingProcess />} />
+
+      </Routes>
+
+
+
     </BrowserRouter>
   );
 }

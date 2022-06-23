@@ -65,12 +65,6 @@ const classes = useStyles();
 
 
 
-
-
-
-
-
-
   const [query, setQuery] = useState("")
   const[products, setProducts] = useState([{
     title:'',

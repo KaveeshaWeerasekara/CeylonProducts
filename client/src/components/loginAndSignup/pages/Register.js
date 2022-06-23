@@ -1,5 +1,5 @@
 import React,{useState} from 'react'
-//import { useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 //import { registerAction } from '../../../container/actions';
 import BaseRegister from '../../loginAndSignup/imports/BaseRegister';
 import RegisterForm from '../../loginAndSignup/imports/RegisterForm';
@@ -7,6 +7,7 @@ import RegisterForm from '../../loginAndSignup/imports/RegisterForm';
 import {useNavigate} from 'react-router-dom';
 import axios from 'axios';
 //import { Navigate } from 'react-router-dom';
+import { authActions } from '../services/auth.service';
 
 export default function Register() {
 
@@ -15,16 +16,27 @@ export default function Register() {
     const[password,setPassword]=useState("")
     const[passwordCheck,setPasswordCheck]=useState("")
 
-    const [errorMessage,setError]=useState("")
+    const [error,setError]=useState("")
 
+    //const [isSignup,setIsSignup]=useState(false);
 //
-// const dispatch = useDispatch()
+ //const dispath = useDispatch()
 const navigate = useNavigate()
 
 
 
 //on form submit click handler
 const handleSubmit=(event)=>{
+    const re=/^[A-Za-z]+$/;
+    const regex=/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
+    if(!email)
+      alert("email is required")
+    if(!password)
+      alert('password is required')
+      if(!username)
+      alert('username is required')
+    if(!regex.test(email))
+      alert("Email is not valid")
 
     event.preventDefault();
     //console.log("sends")
@@ -37,7 +49,7 @@ const handleSubmit=(event)=>{
     }
 
     console.log(newUser);
-
+    
     // axios.post("http://localhost:5000/api/register",newUser,{
     //     withCredentials:true,
     //     credentials:"include",
@@ -48,14 +60,24 @@ const handleSubmit=(event)=>{
     axios.post("http://localhost:5000/api/register", newUser)
     .then((res) => {
             console.log(res.data);
+         
             navigate('/login');
         })
-        .catch(error =>{
+        .catch(error=> {
             //const login=dispatch(loginAction(userCredential))
            
-            setError(error.err)
-           alert(error);
+            
+            // if(error.response && 
+            //     error.response.status>=400&&error.response<=500){
+
+            //     }
+            //     setError(error.response.data)   
+           alert("please check again...");
+
           }) 
+        // .catch((err)=>console.log(err));
+
+    
 
 
     // const user={username:"admin",email:"admin@gmail.com",password:"admin123",passwordCheck:"admin123"}
@@ -84,13 +106,15 @@ let registerData={
     setPasswordCheck
 }
 
+
+
   return (
     <div id='login' >
             
         <div className="container">
             <div className="row login-box">
                 
-                <RegisterForm registerState={registerData}/>
+                <RegisterForm registerState={registerData} />
                 <BaseRegister/>
             
             </div> 

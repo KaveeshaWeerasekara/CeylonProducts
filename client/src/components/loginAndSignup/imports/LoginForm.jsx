@@ -7,6 +7,16 @@ export default function LoginForm(props) {
     setEmail,
     setPassword
   }=props.loginState;
+
+  //const [loading,setLoading]=useState(false);
+  // const [email,setEmail]=useState();
+
+  // const submitHandler=async()=>{
+  //   setLoading(true);
+  //   if(!email||!password){
+  //     alert("Please Fill the fields");
+  //   }
+  // }
   
   
   return (
@@ -31,7 +41,7 @@ export default function LoginForm(props) {
             </div>
 
             <div className="form-group ">
-            <button className='btn primary-btn'>Login</button>
+            <button className='btn primary-btn' >Login</button>
             </div>
             </form>
         </div>
