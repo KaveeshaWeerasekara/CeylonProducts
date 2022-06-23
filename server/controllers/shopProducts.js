@@ -7,16 +7,16 @@ exports.createProducts = async function (req, res, next) {
   try {
     const createProducts = new Product({
       title: req.body.title,
-     
+      category: req.body.category,
       description: req.body.description,
-     
+      quantity: req.body.quantity,
       price: req.body.price,
-     
-      photo: req.body.photo
+      photo: req.body.photo,
+      Sid: req.body.Sid
     });
-    
+
     const result = await createProducts.save();
-    
+
     res.json(result);
 
   } catch (error) {
