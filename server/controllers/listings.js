@@ -48,3 +48,31 @@ const deleteListings = async (request, response) => {
 }
 
 exports.deleteListings = deleteListings;
+
+const updateListing = async (req,res,next)=>{
+  const{title, category, description, quantity, price, handlingTime, photo } = req.body;
+  const listingId = req.params.id;
+  let editListing;
+  try {
+    editListing = await Listing.findByIdAndUpdate(listingId, {
+      title,
+      category,
+      description, 
+      quantity,
+      price,
+      handlingTime,
+       photo
+    })
+
+  } catch(err){
+    return console.log(err)
+  }
+  if(!editListing){
+    return res.status(500).json({message:"unable to update"})
+  }
+
+  return res.status(200).json({editListing})
+
+}
+
+exports.updateListing = updateListing;

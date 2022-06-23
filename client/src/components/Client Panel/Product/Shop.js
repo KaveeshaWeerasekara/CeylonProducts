@@ -16,6 +16,50 @@ import Nav from '../Nav'
 
 const Shop = () => {
 
+
+  // const [cart, setCart] = useState("")
+  // let { id } = useParams();
+
+  // const handleClick = ( e)=>{
+   
+  //   console.log (e.currentTarget.key)
+     
+   
+  // }
+  // let params = useParams.id;
+  // console.log(params)
+  // function sayHello(){
+  //   console.log("Hello")
+  // }
+  // function sayHi(id){
+  //   console.log(id)
+  // }
+  function clickMe (event, a , b, c ,d){
+    console.log(a)
+    const newCart ={
+      id: a,
+      title: b,
+      price: c,
+      photo: d,
+      userID:"12345"
+    }
+    axios.post("http://localhost:5000/api/carts/createCart",newCart)
+
+
+}
+  const handleCart= (productID)=> {
+    // event.preventDefault();
+    
+    // let productID ="62b0ccda1bdbac3a30237004"
+    console.log("hello")
+    console.log(productID)
+    const newCart ={
+      id:productID,
+      userID:"12345"
+    }
+    
+    axios.post("http://localhost:5000/api/carts/createCart",newCart)}
+    
   
 const classes = useStyles();
 
@@ -74,7 +118,7 @@ const classes = useStyles();
   </div>
        
   <Grid container direction={"row"} spacing={3} >
-    
+  
  {products.filter(products => {
   if(query===""){
 
@@ -90,7 +134,7 @@ const classes = useStyles();
   
 
    <Grid item className ={classes.oneCard}>
-  <Card className={classes.card1}>
+  <Card className={classes.card1} >
 
    
    <div className={classes.myDiv5}>
@@ -105,15 +149,16 @@ const classes = useStyles();
    
    
      
-     <Typography className={classes.titleColor2} align='center' variant="subtitile1"  component="p">{products.price}</Typography>
+     <Typography className={classes.titleColor2} align='center' variant="subtitile1"  component="p">{products.price} $</Typography>
      </div>
      
      <div className={classes.myDiv10}>
      <CardActions className={classes.cardActions}>
 
-     <Button     style={{ backgroundColor: '#c96838', borderRadius: 35,}} variant="contained" size="small" color="#000000"  ><ShoppingCartIcon fontSize="small" />Add to Cart </Button>
-     <Link to = {`/ProductDetail/${products._id}`}><Button     style={{ borderRadius: 35,}} variant="contained" size="small" color="primary"  >View Product </Button></Link>
-
+     <Button     style={{ backgroundColor: '#c96838', borderRadius: 35,}} variant="contained" size="small" color="#000000" onClick={(e) => {
+      clickMe(e, products._id, products.title, products.price, products.photo);
+   }} ><ShoppingCartIcon fontSize="small" />Add to Cart </Button>
+     <Link to ={`/ProductDetails/${products._id}`}><Button     style={{ borderRadius: 35,}} variant="contained" size="small" color="primary"  >View Product </Button></Link>
      </CardActions>
      </div>
      

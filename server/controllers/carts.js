@@ -5,13 +5,15 @@ const Cart = require('../models/carts');
 
 exports.createCart = async function (req, res, next) {
   try {
-    const createdCart = new Cart({
-      cid: req.body.cid,
-
-      numofp: req.body.numofp
+    const createCart = new Cart({
+      id: req.body.id,
+      title: req.body.title,
+      price: req.body.price,
+      photo: req.body.photo,
+      userID: req.body.userID
     });
     
-    const result = await createdCart.save();
+    const result = await createCart.save();
     
     res.json(result);
 
@@ -20,13 +22,25 @@ exports.createCart = async function (req, res, next) {
     res.send("Server error 2");
   }
 };
-
-
 const getCart = async (req, res, next) => {
-  const carts = await Cart.find().exec();
-  res.json(Customers);
+  const cart = await Cart.find().exec();
+  res.json(cart);
 }
 
 
 
 exports.getCart = getCart;
+
+
+
+
+const deleteCartItem = async (request, response) => {
+  try{
+      await Cart.deleteOne({_id: request.params.id});
+      response.status(201).json("Job deleted Successfully");
+  } catch (error){
+      response.status(409).json({ message: error.message});     
+  }
+}
+
+exports.deleteCartItem = deleteCartItem;

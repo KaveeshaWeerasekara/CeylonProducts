@@ -45,6 +45,15 @@ import AppLayout1 from "./components/seller Panel/Layout/AppLayout1";
 import OrderDetails from "./Pages/Seller Panel/OrderDetails";
 
 
+//Import page- ProductDetails
+
+import ProductDetails from "./components/Client Panel/Product/ProductDetails";
+
+//Import page- Cart
+
+import Cart from "./components/Client Panel/Product/Cart";
+
+
 //Import page-Blogs
 import Blogs from "./Pages/Client Panel/BlogPosts/Blogs";
 import { AddBlog } from "./Pages/Client Panel/BlogPosts/AddBlogs";
@@ -65,6 +74,7 @@ import Reportrestricted from "./Pages/Client Panel/HelpCenter/Reportrestricted";
 import ReturnProduct from "./Pages/Client Panel/HelpCenter/ReturnProduct";
 import BuyingProcess from "./Pages/Client Panel/HelpCenter/BuyingProcess";
 import serachBar from "./Pages/Client Panel/BlogPosts/serachBar";
+
 
 
 function App() {
@@ -135,6 +145,16 @@ function App() {
         <Route path="/serachBar" element={<serachBar />}/>
       </Routes>
 
+      {/*ProductDetails*/}
+      <Routes>
+        <Route path="/ProductDetails/:id" element={<ProductDetails />} />
+      </Routes>
+       {/*ProductDetails*/}
+       <Routes>
+        <Route path="/Cart" element={<Cart />} />
+      </Routes>
+
+
       <Routes>
         <Route path="/blogs/add" element={<AddBlog />} />
         <Route path="/AddBlogsNew" element={<AddBlogsNew />} />
@@ -159,6 +179,7 @@ function App() {
         <Route path="/BuyingProcess" element={<BuyingProcess />} />
 
       </Routes>
+
 
 
     </BrowserRouter>

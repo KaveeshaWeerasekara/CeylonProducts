@@ -8,12 +8,11 @@ const { body } = require("express-validator");
 const carts = require("../../controllers/carts")
 
 // @route   GET /api/carts/createCart
-
 router.post("/createCart", carts.createCart);
 
-
-// @route   post /api/carts/getCart
-
 router.get("/getCart", carts.getCart);
+
+router.delete(`/deleteCartItem/:id`, carts.deleteCartItem);
+
 
 module.exports = router;
