@@ -1,5 +1,5 @@
 import { React, useState } from 'react';
-import styled from 'styled-components';
+// import styled from 'styled-components';
 
 import {
     FormControl,
@@ -28,7 +28,7 @@ const Reportrestricted = () => {
    
   return (
     <div>
-         <Container>
+         {/* <Container> */}
             <FormControl component="fieldset">
                 <RadioGroup
                     className="radio-group"
@@ -81,28 +81,28 @@ const Reportrestricted = () => {
                     />
                 </RadioGroup>
             </FormControl>
-        </Container>
+        {/* </Container> */}
     </div>
   )
 }
 
 export default Reportrestricted
 
-const Container = styled.div`
-    text-align: center;
+// const Container = styled.div`
+//     text-align: center;
 
-    .radio-group {
-        width: 85%;
-        margin: auto;
-        color: black;
-    }
+//     .radio-group {
+//         width: 85%;
+//         margin: auto;
+//         color: black;
+//     }
 
-    .MuiFormControlLabel-root {
-        display: grid;
-        margin: 1rem 1.5rem;
+//     .MuiFormControlLabel-root {
+//         display: grid;
+//         margin: 1rem 1.5rem;
 
-        .MuiButtonBase-root {
-            background-color: #fff;
-        }
-    }
-`;
+//         .MuiButtonBase-root {
+//             background-color: #fff;
+//         }
+//     }
+// `;

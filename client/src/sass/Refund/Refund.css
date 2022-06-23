@@ -1,6 +1,6 @@
 
   
-
+/* 
   .center_div2 {
     width: 15%;
     height: 10vh;
@@ -11,7 +11,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-  }
+  } */ 
   
   /* h5 {
     color: rgb(9, 2, 2);
@@ -46,13 +46,13 @@
   /* button:hover {
     background-color: #20bf6b;
   } */
-  
+/*   
   .btn_div3 {
     width: 100%;
     display: flex;
     justify-content: space-around;
     align-items: center;
-  } 
+  }  */
   
   /* .todo_style {
     display: flex;

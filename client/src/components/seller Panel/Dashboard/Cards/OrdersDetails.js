@@ -7,7 +7,7 @@ const OrderDetails = (props) => (
             <h4 className="text-gray-800  font-bold mb-2">Order Details</h4>
             <div className="py-0 w-full flex items-center justify-between mt-0.1 border-b border-black mb-3 pb-6"></div>
             {/* <hr className="mb-4 "></hr> */}
-            <p className="text-gray-800  text-sm">
+            {/* <p className="text-gray-800  text-sm">
               Awaiting shipment - Print shipping label
             </p>
             <p className="text-gray-800  text-sm">All open returns</p>
@@ -18,7 +18,8 @@ const OrderDetails = (props) => (
             </p>
             <p className="text-gray-800  text-sm">
               Orders eligible for combined purchases
-            </p>
+            </p> */}
+           <a href="/Orders"><p className="text-gray-800  text-sm">Order Details</p></a> 
           </div>
           
         </div>

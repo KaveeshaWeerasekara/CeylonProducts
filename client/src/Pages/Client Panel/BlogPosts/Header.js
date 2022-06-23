@@ -3,7 +3,7 @@ import {AppBar, Button, Toolbar, Typography,Box, Tabs,Tab} from '@mui/material'
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 //import { authActions } from '../store';
-import styled from 'styled-components';
+// import styled from 'styled-components';
 import "bootstrap/dist/css/bootstrap.min.css";
 import '../../../sass/Blog/Blog.css';
 
@@ -23,7 +23,7 @@ export const Header = () => {
     const [value,setValue]=useState();
   return (
      <div>
-        <MainContainer2><h1>Welcome To <br/>The Blog...</h1></MainContainer2>
+        {/* <MainContainer2><h1>Welcome To <br/>The Blog...</h1></MainContainer2> */}
 
 <AppBar position='sticky' sx={{background:'black' }}>
         <Toolbar>
@@ -76,17 +76,17 @@ export const Header = () => {
 };
 
 
-const MainContainer2=styled.header`
-    background:url(../../assests/blogHeader.jpg)no-repeat center/cover;
-    height:25rem;
+// const MainContainer2=styled.header`
+//     background:url(../../assests/blogHeader.jpg)no-repeat center/cover;
+//     height:25rem;
 
-    h1{
-        transform:translate(50%,50%);
-        color:#fff;
-        font-weight:900;
-        position:absolute;
-        top:25%
-        left:50%
+//     h1{
+//         transform:translate(50%,50%);
+//         color:#fff;
+//         font-weight:900;
+//         position:absolute;
+//         top:25%
+//         left:50%
     
-    }
-`;
+//     }
+// `;
