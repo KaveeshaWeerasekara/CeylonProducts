@@ -24,8 +24,17 @@ exports.createcontact = async function (req, res, next) {
 
 
 
+// const getcontact = async (req, res, next) => {
+//   const contact = await chat.find().exec();
+//   res.json(contact);
+// }
+
+
+
+// exports.getcontact = getcontact;
+
 const getcontact = async (req, res, next) => {
-  const contact = await Chat.find().exec();
+  const contact = await Contact.find().exec();
   res.json(contact);
 }
 

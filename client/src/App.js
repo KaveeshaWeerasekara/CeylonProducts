@@ -43,6 +43,29 @@ import Shop from "./components/Client Panel/Product/Shop";
 import AppLayout1 from "./components/seller Panel/Layout/AppLayout1";
 import OrderDetails from "./Pages/Seller Panel/OrderDetails";
 
+
+//Import page-Blogs
+import Blogs from "./Pages/Client Panel/BlogPosts/Blogs";
+import { AddBlog } from "./Pages/Client Panel/BlogPosts/AddBlogs";
+import AddBlogsNew from "./Pages/Client Panel/BlogPosts/AddBlogsNew";
+import GettingBlogs from "./Pages/Client Panel/BlogPosts/GettingBlogs";
+
+
+
+//Import Refund pages
+import Refund from "./Pages/Client Panel/Refunds/Refund";
+
+//Import Help Center Pages
+import HelpCenter from "./Pages/Client Panel/HelpCenter/HelpCenter";
+import GettingMsg from "./Pages/Client Panel/HelpCenter/GettingMsg";
+import RequestRefund from "./Pages/Client Panel/HelpCenter/RequestRefund";
+import ReportType from "./Pages/Client Panel/HelpCenter/ReportType";
+import Reportrestricted from "./Pages/Client Panel/HelpCenter/Reportrestricted";
+import ReturnProduct from "./Pages/Client Panel/HelpCenter/ReturnProduct";
+import BuyingProcess from "./Pages/Client Panel/HelpCenter/BuyingProcess";
+import serachBar from "./Pages/Client Panel/BlogPosts/serachBar";
+
+
 function App() {
   return (
     <BrowserRouter>
@@ -100,6 +123,39 @@ function App() {
       <Routes>
       <Route path="/Sellers" element={<SellerRegistration />} />
       </Routes>
+
+      {/* BlogPost Module */}
+      <Routes>
+        <Route path="/AllBlogs" element={<Blogs />} />
+        <Route path="/serachBar" element={<serachBar />}/>
+      </Routes>
+
+      <Routes>
+        <Route path="/blogs/add" element={<AddBlog />} />
+        <Route path="/AddBlogsNew" element={<AddBlogsNew />} />
+        <Route path="/GettingBlogs" element={<GettingBlogs />} />
+      </Routes>
+
+
+      {/* Refund Request module */}
+      <Routes>
+        <Route path="/Refund" element={<Refund />} />
+      </Routes>
+
+
+      {/* Help Center page */}
+      <Routes>
+        <Route path="/HelpCenter" element={<HelpCenter />} />
+        <Route path="/GettingMsg" element={<GettingMsg />} />
+        <Route path="/RequestRefund" element={<RequestRefund />} />
+        <Route path="/ReportType" element={<ReportType />} />
+        <Route path="/Reportrestricted" element={<Reportrestricted />} />
+        <Route path="/ReturnProduct" element={<ReturnProduct />} />
+        <Route path="/BuyingProcess" element={<BuyingProcess />} />
+
+      </Routes>
+
+
     </BrowserRouter>
   );
 }
