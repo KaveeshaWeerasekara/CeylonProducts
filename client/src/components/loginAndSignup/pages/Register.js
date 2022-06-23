@@ -27,6 +27,16 @@ const navigate = useNavigate()
 
 //on form submit click handler
 const handleSubmit=(event)=>{
+    const re=/^[A-Za-z]+$/;
+    const regex=/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
+    if(!email)
+      alert("email is required")
+    if(!password)
+      alert('password is required')
+      if(!username)
+      alert('username is required')
+    if(!regex.test(email))
+      alert("Email is not valid")
 
     event.preventDefault();
     //console.log("sends")

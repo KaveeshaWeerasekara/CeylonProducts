@@ -1,6 +1,6 @@
 const bcrypt=require('bcrypt');
 const User=require('../models/login');
-const Token=require('../models/token')
+
 const jwt=require('jsonwebtoken');
 const sendEmail=require('../utils/sendEmail');
 const crypto=require("crypto")

@@ -6,7 +6,7 @@ const loginSchema = new mongoose.Schema({
      password: { type: String, required: true,minlength:8 },
      username: { type: String, required: true },
      blogs:[{type:mongoose.Types.ObjectId,ref:"blogs",required:true}],
-     verified:{type:Boolean,default:false}
+     //verified:{type:Boolean,default:false}
      
    });
    

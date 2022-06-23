@@ -2,9 +2,9 @@ import { Typography,Box, InputLabel, TextField, Button } from '@mui/material'
 //import FileBase from "react-file-base64";
 //import { fontWeight } from '@mui/system'
 import axios from 'axios'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Header } from './Header';
-
+import jwt_decode from 'jwt-decode'
 
 
 
@@ -17,30 +17,78 @@ const labelStyles={
 };
 
 export const AddBlog = () => {
-  const [inputs, setInputs]=useState({
+
+
+   const [inputs, setInputs]=useState({
     title:"",
     description:"",
     image:"",
-    user:"",
   });
 
-  const handleChange=(e)=>{
-    setInputs((prevState)=>({
-      ...prevState,
-      [e.target.name]:e.target.value,
+   //const [user1,setuser1]=useState()
   
-    }));
-  }
+ const user1=useEffect(() => {
+  const token = localStorage.getItem('x-access-token')
+  const authUser = jwt_decode(token)
+  console.log(authUser);
+  return authUser;
+}, [])
+
+
+  //return setuser1(authUser);
+  //console.log(authUser.id)
+  //setBloger(authUser)
+  //  if (token) {
+    
+  //   console.log(authUser.id);
+  //   if (!authUser) {
+  //     localStorage.removeItem('x-access-token')
+      
+  //     //navigate('/login')
+  //   } else {
+  //     setUser(authUser)
+  //   }
+  // } else {
+  //   // alert('Please Login')
+  //   // navigate('/login')
+  // }
+ 
+
+
+
+  // const handleChange=(e)=>{
+  //   setInputs((prevState)=>({
+  //     ...prevState,
+  //     [e.target.name]:e.target.value,
+  
+  //   }));
+   
+  // }
 //   const user = JSON.parse(localStorage.getItem('x-access-token'));
 // console.log(user);
+// const user=localStorage.getItem('x-access-token')
+// console.log(user);
 
-  const sendRequest=async ()=>{
+const handleChange=(e)=>{
+  setInputs((prevState)=>({
+    ...prevState,
+    [e.target.name]:e.target.value,
+
+  }));
+}
+
+
+
+
+const sendRequest=async ()=>{
      axios.post('http://localhost:5000/api/blogRoutes/add',{
       title:inputs.title,
       description:inputs.description,
-      image:inputs.image,
-       user:localStorage.getItem('x-access-token')
-    }) .then((data)=>console.log(data));
+      image:inputs.imageURL,
+      user:"62a9b6968d67a22d34f1"
+      
+    }) 
+    .then((data)=>console.log(data));
     // .then((res) => {
     //   console.log(res.data);
    // })
@@ -56,12 +104,11 @@ export const AddBlog = () => {
 
   }
 
-
   return (
     
     <div>
 
-<header>
+  <header>
     <Header/>
   </header>
 
@@ -87,6 +134,18 @@ export const AddBlog = () => {
           >
           Post Your Blog
           </Typography>
+          {/* <InputLabel sx={labelStyles}>
+           Name
+          </InputLabel>
+          <TextField 
+            name='name' 
+            // onChange={handleChange} 
+            // value={inputs.name} 
+            variant="filled" 
+            color='warning' 
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          /> */}
 
           <InputLabel sx={labelStyles}>
             Title
@@ -98,39 +157,33 @@ export const AddBlog = () => {
             variant="filled" 
             color='warning' 
           />
-          {/* <InputLabel sx={labelStyles}>
-            Sub Title
-          </InputLabel>
-          <TextField 
-            name='title' 
-            onChange={handleChange} 
-            value={inputs.title} 
-            variant="filled" 
-            color='warning' 
-          /> */}
+         
+         
           <InputLabel sx={labelStyles}>
             Description
           </InputLabel>
 
 
-          {/* <TextField  
-            name='description' 
-            onChange={handleChange} 
-            value={inputs.description}  
-            variant="standard" 
-            color='warning'
-          /> */}
+
           <TextField
-          id="filled-multiline-static"
-          onChange={handleChange} 
+         name='description'
+         onChange={handleChange} 
           value={inputs.description} 
-          multiline
+         multiline
           rows={10}
-       
+          type='text'
           color='warning'
           defaultValue="Default Value"
           variant="filled"
         />
+         {/* <textarea 
+                  
+                    onChange={handleChange} 
+                    value={inputs.description} 
+                    type="text"
+                    // placeholder="Enter your Email"
+                     variant="filled"
+                /> */}
 
 
           <InputLabel sx={labelStyles}>
@@ -138,21 +191,16 @@ export const AddBlog = () => {
           </InputLabel>
           {/* <TextField  name='imageURL' onChange={handleChange} value={inputs.imageURL} margin='auto' variant='outlined'/> */}
           
-{/* <InputLabel sx={labelStyles}>Description</InputLabel>
-<TextField
-  sx={labelStyles}
-  variant="standard"
-  color="warning"
-  focused
-> Description</TextField> */}
+
+
 
           <TextField
-            name="upload-photo"
+            name="image"
             type="file"
             variant="standard" 
             color='warning'
             onChange={handleChange} 
-            value={inputs.imageURL}
+          value={inputs.image} 
           />
 
           <Button sx={{marginTop:2, borderRadius:2}} variant="contained" color="warning"  type='submit'>Submit</Button>

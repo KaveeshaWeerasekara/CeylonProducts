@@ -18,20 +18,7 @@ export default function GettingMsg() {
     ]);
 
 
-    // const sendRequest=async()=>{
-    //     const res= await axios
-    //     .get("http://localhost:5000/api/contactform/getcontact")
-        
-    //     .catch((err)=>console.log(err));
-    //     const data=await res.data;
-    //     return data;
-    //   }
-
-//   useEffect(()=>{
-//     sendRequest().then((data)=>setContact(data.contact));
-//   },[]);
-//   console.log(contact);
-
+ 
 
 
 

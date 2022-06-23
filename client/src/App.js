@@ -47,6 +47,9 @@ import OrderDetails from "./Pages/Seller Panel/OrderDetails";
 //Import page-Blogs
 import Blogs from "./Pages/Client Panel/BlogPosts/Blogs";
 import { AddBlog } from "./Pages/Client Panel/BlogPosts/AddBlogs";
+import AddBlogsNew from "./Pages/Client Panel/BlogPosts/AddBlogsNew";
+import GettingBlogs from "./Pages/Client Panel/BlogPosts/GettingBlogs";
+
 
 
 //Import Refund pages
@@ -60,6 +63,8 @@ import ReportType from "./Pages/Client Panel/HelpCenter/ReportType";
 import Reportrestricted from "./Pages/Client Panel/HelpCenter/Reportrestricted";
 import ReturnProduct from "./Pages/Client Panel/HelpCenter/ReturnProduct";
 import BuyingProcess from "./Pages/Client Panel/HelpCenter/BuyingProcess";
+import serachBar from "./Pages/Client Panel/BlogPosts/serachBar";
+
 
 function App() {
   return (
@@ -122,10 +127,13 @@ function App() {
       {/* BlogPost Module */}
       <Routes>
         <Route path="/AllBlogs" element={<Blogs />} />
+        <Route path="/serachBar" element={<serachBar />}/>
       </Routes>
 
       <Routes>
         <Route path="/blogs/add" element={<AddBlog />} />
+        <Route path="/AddBlogsNew" element={<AddBlogsNew />} />
+        <Route path="/GettingBlogs" element={<GettingBlogs />} />
       </Routes>
 
 

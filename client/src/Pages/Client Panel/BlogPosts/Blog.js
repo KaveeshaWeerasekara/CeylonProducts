@@ -1,7 +1,7 @@
 import React from 'react'
 import {Card,CardHeader,Avatar,CardMedia,CardContent,Typography} from "@mui/material";
 
-export const Blog = ({title,description,image,username}) => {
+export const Blog = ({title,description,image,username,name}) => {
   return (
     <div>
         <Card sx={{ 
@@ -16,12 +16,13 @@ export const Blog = ({title,description,image,username}) => {
       <CardHeader
         avatar={
           <Avatar sx={{ bgcolor: "red" }} aria-label="recipe">
-           {username}
+            {/* {name}
+           {username} */}
           </Avatar>
         }
         
         title={title}
-        subheader="September 14, 2016"
+        subheader={name}
       />
       <CardMedia
         component="img"

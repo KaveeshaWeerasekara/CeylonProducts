@@ -48,6 +48,7 @@ app.use("/api/shopProducts", require("./routes/api/shopProducts"));
 app.use("/api/blogUserRoutes",require("./routes/api/blogUserRoutes"));
 app.use("/api/blogRoutes",require("./routes/api/blogRoutes"));
 app.use("/api/returnProduct", require("./routes/api/returnProduct"));
+app.use("/api/BlogsNewAdd", require("./routes/api/BlogsNewAdd"));
 
 
 

@@ -21,6 +21,14 @@ export default function Login() {
 
   //handle Submit handler function
   const handleSubmit=(event)=>{
+    const re=/^[A-Za-z]+$/;
+    const regex=/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
+    if(!email)
+      alert("email is required")
+    if(!password)
+      alert('password is required')
+    if(!regex.test(email))
+      alert("Email is not valid")
     event.preventDefault();
 
     const userCredential={

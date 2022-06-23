@@ -19,7 +19,7 @@ const labelStyles={
 
  
 
-export default function HelpCenter() {
+export default function OneBlog() {
 
 
 
