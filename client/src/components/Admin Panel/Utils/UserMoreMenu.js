@@ -44,7 +44,7 @@ export default function UserMoreMenu({ post, fetchPosts }) {
         anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
         transformOrigin={{ vertical: 'top', horizontal: 'right' }}
       >
-        <MenuItem
+        {/* <MenuItem
           component={RouterLink}
           to='/profile'
           sx={{ color: 'text.secondary' }}
@@ -54,7 +54,7 @@ export default function UserMoreMenu({ post, fetchPosts }) {
             primary='Edit'
             primaryTypographyProps={{ variant: 'body2' }}
           />
-        </MenuItem>
+        </MenuItem> */}
 
         <MenuItem
           sx={{ color: 'text.secondary' }}

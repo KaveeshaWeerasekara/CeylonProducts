@@ -11,7 +11,7 @@ function SEarnings() {
         <div className=" pl-12 text-5xl text-[#e47740] 	">Welcome , NAME</div>
         <Updates1/>
         <div className=" container">
-         {/* <Echart /> */}
+          <Echart /> 
         
         </div>
         

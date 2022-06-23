@@ -1,5 +1,5 @@
-const { body } = require('express-validator')
-const Users = require('../models/users')
+const { body } = require("express-validator");
+const Users = require("../models/users");
 
 exports.createuser = async function (req, res, next) {
   try {
@@ -13,18 +13,23 @@ exports.createuser = async function (req, res, next) {
       streetNo: req.body.streetNo,
       Street: req.body.Street,
       city: req.body.city,
+      province: req.body.province,
       country: req.body.country,
       postalCode: req.body.postalCode,
-    })
+      image: req.body.image,
+      add: req.body.add,
+      driving: req.body.nic,
+      val: req.body.validate,
+    });
 
-    const result = await createduser.save()
+    const result = await createduser.save();
 
-    res.send(result)
+    res.send(result);
   } catch (error) {
-    console.error(error.message)
-    res.send('Server error')
+    console.error(error.message);
+    res.send("Server error");
   }
-}
+};
 
 // const getuser = async (req, res, next) => {
 //   const users = await User.find().exec();
@@ -39,32 +44,32 @@ exports.getuser = async (req, res, next) => {
     if (err) {
       return res.status(400).json({
         error: err,
-      })
+      });
     }
     return res.status(200).json({
       success: true,
       existingposts: users,
-    })
-  })
-}
+    });
+  });
+};
 
 //Get specific User
 exports.getSpecificUser = async (req, res, next) => {
-  let userid = req.params.id
+  let userid = req.params.id;
 
   Users.findById(userid, (err, post) => {
     if (err) {
       return res.status(400).json({
         success: false,
         err,
-      })
+      });
     }
     return res.status(200).json({
       success: true,
       post,
-    })
-  })
-}
+    });
+  });
+};
 
 //Update User
 exports.updateUser = async (req, res, next) => {
@@ -77,67 +82,144 @@ exports.updateUser = async (req, res, next) => {
       if (err) {
         return res.status(400).json({
           error: err,
-        })
+        });
       }
       return res.status(200).json({
-        success: 'Updated Succesfully',
-      })
+        success: "Updated Succesfully",
+      });
     }
-  )
-}
+  );
+};
+
+exports.verifyUser = async (req, res, next) => {
+  Users.findByIdAndUpdate(
+    req.params.id,
+    {
+      $set: { val: "1" },
+    },
+    (err, user) => {
+      if (err) {
+        return res.status(400).json({
+          error: err,
+        });
+      }
+      return res.status(200).json({
+        success: "Updated Succesfully",
+      });
+    }
+  );
+};
+
+exports.notverifyUser = async (req, res, next) => {
+  Users.findByIdAndUpdate(
+    req.params.id,
+    {
+      $set: { val: "2" },
+    },
+    (err, user) => {
+      if (err) {
+        return res.status(400).json({
+          error: err,
+        });
+      }
+      return res.status(200).json({
+        success: "Updated Succesfully",
+      });
+    }
+  );
+};
 
 //Delete User
 exports.deleteUser = async (req, res, next) => {
   Users.findByIdAndRemove(req.params.id).exec((err, deleteduser) => {
     if (err) {
       return res.status(400).json({
-        message: 'Delete Unsuccesfully',
+        message: "Delete Unsuccesfully",
         err,
-      })
+      });
     }
     return res.status(200).json({
-      message: 'Delete Succesfully',
+      message: "Delete Succesfully",
       deleteduser,
-    })
-  })
-}
+    });
+  });
+};
 
 //Filter users on category
 exports.getuserByCatergory = async (req, res, next) => {
-  let catergory = req.body.catergory
-  console.log(catergory)
+  let catergory = req.body.catergory;
+  console.log(catergory);
   Users.find({
     city: catergory,
   }).exec((err, users) => {
     if (err) {
       return res.status(400).json({
         error: err,
-      })
+      });
     }
     return res.status(200).json({
       success: true,
       existingposts: users,
-    })
-  })
-}
+    });
+  });
+};
 
 //Get new users from last month
 exports.getnewusers = async (req, res, next) => {
-  let date = new Date()
-  let month = new Date().getMonth()
-  let prevMonth = date.setMonth(month - 1)
-  let formatPrevMonth = new Date(date.setMonth(month - 1))
+  let date = new Date();
+  let month = new Date().getMonth();
+  let prevMonth = date.setMonth(month - 1);
+  let formatPrevMonth = new Date(date.setMonth(month - 1));
   Users.count({
     createdAt: { $gte: formatPrevMonth },
   }).exec((err, users) => {
     if (err) {
       return res.status(400).json({
         error: err,
-      })
+      });
     }
     return res.status(200).json({
       success: true,
       noNewUsers: users,
-    })
-  })
-}
+    });
+  });
+};
+
+//Filter users on category
+exports.getuserByValidation = async (req, res, next) => {
+  let catergory = req.body.catergory;
+  let validation = "0";
+  console.log(catergory);
+  Users.find({
+    val: validation,
+  }).exec((err, users) => {
+    if (err) {
+      return res.status(400).json({
+        error: err,
+      });
+    }
+    return res.status(200).json({
+      success: true,
+      existingposts: users,
+    });
+  });
+};
+
+exports.getuserByNotValidation = async (req, res, next) => {
+  let catergory = req.body.catergory;
+  let validation = "1";
+  console.log(catergory);
+  Users.find({
+    val: validation,
+  }).exec((err, users) => {
+    if (err) {
+      return res.status(400).json({
+        error: err,
+      });
+    }
+    return res.status(200).json({
+      success: true,
+      existingposts: users,
+    });
+  });
+};

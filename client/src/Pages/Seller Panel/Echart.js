@@ -29,7 +29,7 @@ function Echart() {
         <Chart
           options={state.options}
           series={state.series}
-          type="line"
+          type="bar"
           width="100%"
         />
       </div>
@@ -46,3 +46,4 @@ export default Echart;
 // histogram
 // scatter
 // heatmap
+

@@ -10,7 +10,7 @@ import Updates from "../../components/seller Panel/Dashboard/Updates/Updates";
 function SDashboard() {
   return (
     <div >
-      <div className="pl-12 text-5xl text-[#e47740] 	">Welcome , NAME</div>
+      <div className="pl-12 text-5xl text-[#e47740] 	">Welcome </div>
       <Updates />
       <div>
        <div className=" grid grid-flow-col grid-rows-2 grid-cols-3 p-4 ">
@@ -19,7 +19,7 @@ function SDashboard() {
         <div> <Sales /></div>
         <div> <Listings /></div>
         <div> <OrderDetails /></div>
-        <div> <Traffic /></div>
+        {/* <div> <Traffic /></div> */}
        </div>
       
       </div>

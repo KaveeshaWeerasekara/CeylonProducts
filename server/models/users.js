@@ -1,4 +1,4 @@
-const mongoose = require('mongoose')
+const mongoose = require("mongoose");
 
 const userschema = new mongoose.Schema(
   {
@@ -27,6 +27,10 @@ const userschema = new mongoose.Schema(
       type: String,
       required: false,
     },
+    tpnumber: {
+      type: String,
+      required: false,
+    },
     Email: {
       type: String,
       // required: true,
@@ -35,11 +39,18 @@ const userschema = new mongoose.Schema(
       type: String,
       required: false,
     },
+    val: {
+      type: String,
+    },
     Street: {
       type: String,
       // required: true,
     },
     city: {
+      type: String,
+      // required: true,
+    },
+    province: {
       type: String,
       // required: true,
     },
@@ -51,6 +62,18 @@ const userschema = new mongoose.Schema(
       type: String,
       // required: true,
     },
+    postalCode: {
+      type: String,
+      // required: true,
+    },
+    driving: {
+      type: String,
+      // required: true,
+    },
+    add: {
+      type: String,
+      // required: true,
+    },
     img: {
       data: Buffer,
       contentType: String,
@@ -59,6 +82,6 @@ const userschema = new mongoose.Schema(
   {
     timestamps: true,
   }
-)
+);
 
-module.exports = mongoose.model('users', userschema)
+module.exports = mongoose.model("users", userschema);
