@@ -45,10 +45,15 @@ app.use("/api/category", require("./routes/api/category"));
 app.use("/api/contactForm", require("./routes/api/contactform"));
 app.use("/api/listings", require("./routes/api/listings"));
 app.use("/api/shopProducts", require("./routes/api/shopProducts"));
-app.use("/api/blogUserRoutes", require("./routes/api/blogUserRoutes"));
-app.use("/api/blogRoutes", require("./routes/api/blogRoutes"));
+
 app.use("/api/sellerOrder", require("./routes/api/sellerOrder"));
 //app.use("/api/address", require("./routes/api/address"));
+
+app.use("/api/blogUserRoutes",require("./routes/api/blogUserRoutes"));
+app.use("/api/blogRoutes",require("./routes/api/blogRoutes"));
+app.use("/api/returnProduct", require("./routes/api/returnProduct"));
+app.use("/api/BlogsNewAdd", require("./routes/api/BlogsNewAdd"));
+
 
 
 app.use('/api', require('./routes/api/login'));

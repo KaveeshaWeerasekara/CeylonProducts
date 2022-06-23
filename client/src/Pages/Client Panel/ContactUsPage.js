@@ -1,9 +1,12 @@
 import React from "react";
 
 import Nav from "../../components/Client Panel/Nav";
+
 import Footer from "../../components/Client Panel/Footer";
-import ContactUs from "../../components/Client Panel/contactUs/imports/ContactUs";
+
+
 import ContactCeylon from "../../components/Client Panel/contactUs/imports/ContactCeylon";
+import ContactusCeylon from "../../components/Client Panel/contactUs/imports/ContactusCeylon";
 
 export default function ContactUsPage(props) {
   return (
@@ -19,6 +22,12 @@ export default function ContactUsPage(props) {
             <ContactUs />
           </div>
         </div>
+
+        <div className=" col-start-2 ">
+          <ContactusCeylon />
+        </div>
+      </div>
+
       </div>
       <Footer />
     </div>
