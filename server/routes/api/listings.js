@@ -20,4 +20,8 @@ router.get("/getListing", Listings.getListings);
 
 router.delete(`/deleteListings/:id`, Listings.deleteListings);
 
+// @route   post /api/products/getproduct
+
+router.put("/updateListing/:id", Listings.updateListing);
+
 module.exports = router;

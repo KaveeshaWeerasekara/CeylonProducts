@@ -1,9 +1,16 @@
 const mongoose = require("mongoose");
 
-const cartSchema = new mongoose.Schema({
-    cid:{ type:String, required: true},
-   numofp:{ type:Number, required: true}
- 
-});
+const cartSchema = mongoose.Schema(
+    {
+        id:{type: String},
+        title:{type: String},
+        price:{type: Number},
+        photo:{type: String},
+        userID: {type: String}
+        
+       
+    }
+);
+
 
 module.exports = mongoose.model("carts", cartSchema);

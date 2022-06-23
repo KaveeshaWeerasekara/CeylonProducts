@@ -1,4 +1,7 @@
+import { StylesProvider } from '@material-ui/core';
 import React from 'react'
+
+
 
 export default function RegisterForm(props) {
   
@@ -9,6 +12,7 @@ export default function RegisterForm(props) {
         setPassword,
         setPasswordCheck
     }=props.registerState;
+
 
     return (
     <div className='col-sm-7 bg-color align-self-center'>
@@ -39,8 +43,12 @@ export default function RegisterForm(props) {
                     </div>
 
                     <div className="form-group">
+                        {/* {error&&
+                       <Alert variant="outlined" severity="error">
+                       {error}
+                     </Alert>} */}
                         <button className='btn primary-btn' type="submit" >
-                         <a href='/login' >  Register </a>
+                           Register 
                         </button>
                     </div>
 

@@ -12,7 +12,7 @@
 const express = require("express");
 const app = express();
 const connectDb = require("./config/db");
-const cors=require('cors');
+const cors = require('cors');
 
 
 // If extended is false, you can not post "nested object"
@@ -27,7 +27,7 @@ connectDb();
 
 const PORT = process.env.PORT || 5000;
 
-const router = require ('./routes/api/listings.js');
+const router = require('./routes/api/listings.js');
 
 
 // Define Routes
@@ -45,12 +45,18 @@ app.use("/api/category", require("./routes/api/category"));
 app.use("/api/contactForm", require("./routes/api/contactform"));
 app.use("/api/listings", require("./routes/api/listings"));
 app.use("/api/shopProducts", require("./routes/api/shopProducts"));
+
+app.use("/api/sellerOrder", require("./routes/api/sellerOrder"));
+//app.use("/api/address", require("./routes/api/address"));
+
 app.use("/api/blogUserRoutes",require("./routes/api/blogUserRoutes"));
 app.use("/api/blogRoutes",require("./routes/api/blogRoutes"));
+app.use("/api/returnProduct", require("./routes/api/returnProduct"));
+app.use("/api/BlogsNewAdd", require("./routes/api/BlogsNewAdd"));
 
 
 
-app.use('/api',require('./routes/api/login')); 
+app.use('/api', require('./routes/api/login'));
 
 
 

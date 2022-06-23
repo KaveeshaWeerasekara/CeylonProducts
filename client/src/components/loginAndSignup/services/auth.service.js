@@ -37,3 +37,24 @@
 // //     register,
 // //     login
 // // }
+
+import {configureStore, createSlice} from '@reduxjs/toolkit'
+
+const authSlice=createSlice({
+    name:"login",
+    initialState:{isLoggedIn:false},
+    reducers:{                        //action creator
+        login(state){
+            state.isLoggedIn=true;
+        },
+        logout(state){
+            state.isLoggedIn=false;
+        },
+    },
+});
+
+export const authActions=authSlice.actions;
+
+export const store=configureStore({
+    reducer:authSlice.reducer
+})

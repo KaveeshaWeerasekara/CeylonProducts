@@ -15,7 +15,7 @@ exports.createOrder = async function (req, res, next) {
       postalCode: req.body.postalCode,
       country: req.body.country,
       customerID: req.body.customerID,
-      sellerID: req.body.sellerID,
+      Sid: req.body.Sid,
       trackingProvider: req.body.trackingProvider,
       trackingID: req.body.trackingID,
       paymentID: req.body.paymentID,
@@ -23,6 +23,7 @@ exports.createOrder = async function (req, res, next) {
       // date: body.date,
       // time: req.body.time,
       paymentType: req.body.paymentType,
+
     })
 
     const result = await createdOrder.save()

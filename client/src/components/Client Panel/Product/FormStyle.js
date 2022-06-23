@@ -42,12 +42,19 @@ export default makeStyles((theme) => ({
     backgroundColor:"white",
     opacity: '70%'
   },
+
+
   image1:{
     minWidth: "100%",
     minHeight:"100%"
 
    
     
+    
+  },
+  red:
+  {
+    color: 'red'
     
   },
 }));
