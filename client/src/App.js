@@ -43,6 +43,15 @@ import Shop from "./components/Client Panel/Product/Shop";
 import AppLayout1 from "./components/seller Panel/Layout/AppLayout1";
 import OrderDetails from "./Pages/Seller Panel/OrderDetails";
 
+//Import page- ProductDetails
+
+import ProductDetails from "./components/Client Panel/Product/ProductDetails";
+
+//Import page- Cart
+
+import Cart from "./components/Client Panel/Product/Cart";
+
+
 function App() {
   return (
     <BrowserRouter>
@@ -99,6 +108,14 @@ function App() {
 
       <Routes>
       <Route path="/Sellers" element={<SellerRegistration />} />
+      </Routes>
+      {/*ProductDetails*/}
+      <Routes>
+        <Route path="/ProductDetails/:id" element={<ProductDetails />} />
+      </Routes>
+       {/*ProductDetails*/}
+       <Routes>
+        <Route path="/Cart" element={<Cart />} />
       </Routes>
     </BrowserRouter>
   );

@@ -1,4 +1,3 @@
-
 import React, {useState} from "react";
 
 import axios from "axios";
@@ -15,12 +14,16 @@ import { FormControl, InputLabel, Select, MenuItem} from "@material-ui/core";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import FileBase from "react-file-base64";
 import useStyles from "./FormStyle";
+import {useForm} from "react-hook-form"
+import { SliderValueLabelUnstyled } from "@mui/base";
 
 
 
 
 
 const Form = () => {
+
+  const {register, handleSubmit, formState:{errors}} = useForm();
 
   const [postData, setPostData] = useState({
     title: '', category: '', description: '', quantity: '', price: '', handlingTime: '', photo:''
@@ -35,7 +38,44 @@ const Form = () => {
  
   const classes = useStyles();
 
-  const handleSubmit = (event)=> {
+  function checkValidations (){
+    let validated = false
+    if(!postData.title){
+      alert("title is required")
+    }
+    else if(!postData.description){
+      alert("description is required")
+
+    }
+    else if(postData.description.length>50){
+      alert("limit the size of description")
+    }
+    else if(!postData.quantity){
+      alert("Quantity is required")
+    }
+    else if(isNaN(postData.quantity)){
+      alert("Quantity should be a number")
+    }
+    else if(!postData.price){
+      alert("price is required")
+    }
+    
+    else if(isNaN(postData.price)){
+      alert("Price should be a Number")
+    }
+    else if(isNaN(postData.handlingTime)){
+      alert("Handling time should be a Number")
+    }
+
+    else{
+      validated=true
+      console.log("validated in the function")
+      console.log("validated")
+    }
+    return validated
+  }
+
+  const handleSubmits = (event)=> {
     event.preventDefault();
     //form data
 
@@ -48,7 +88,8 @@ const Form = () => {
       handlingTime: postData.handlingTime,
       photo: postData.photo
     }
-    
+    if(checkValidations()==true){
+      console.log("validated")
     axios.post('http://localhost:5000/api/listings/createListing',newData)
 
     // const newProduct ={
@@ -61,7 +102,7 @@ const Form = () => {
     //   photo: postData.photo
     // }
     
-    axios.post('http://localhost:5000/api/shopProducts/createProduct',newData)
+      axios.post('http://localhost:5000/api/shopProducts/createProduct',newData)}
 
   }
   const handleClick = (event)=> {
@@ -103,7 +144,7 @@ const Form = () => {
     
     <Paper sx={{backgroundImage:'https://www.google.com/imgres?imgurl=https%3A%2F%2Fimage.shutterstock.com%2Fimage-photo%2Fset-various-spices-bowls-on-260nw-715363177.jpg&imgrefurl=https%3A%2F%2Fwww.shutterstock.com%2Fsearch%2Fspice&tbnid=M7U4JVRCZMc6FM&vet=10CEgQMyiFAWoXChMI2N2PtLal-AIVAAAAAB0AAAAAEAI..i&docid=J82jr5K_1CvD9M&w=390&h=280&q=images%20of%20spices&ved=0CEgQMyiFAWoXChMI2N2PtLal-AIVAAAAAB0AAAAAEAI'}} className = {classes.paper} >
        <Grid container justifyContent="center">
-      <form autoComplete="off" noValidate className={classes.form} onSubmit={handleSubmit}>
+      <form autoComplete="off" noValidate className={classes.form} onSubmit={handleSubmits}>
      
       <Typography variant="h6">Fill all the fields</Typography>
       <Grid container direction={"column"} spacing={3}>
@@ -114,6 +155,7 @@ const Form = () => {
        label="Title"
        fullWidth
        value = {postData.title}
+      //  {...register("title", {required:"Title is required"})}
        onChange = {handleChange}
        
        ></TextField>

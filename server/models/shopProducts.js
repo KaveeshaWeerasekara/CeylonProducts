@@ -10,6 +10,11 @@ const productSchema = mongoose.Schema(
         handlingTime: {type: String},
         photo: {type: String}
     }
+    ,
+  {
+    timestamps: true,
+  }
+
 );
 
 
